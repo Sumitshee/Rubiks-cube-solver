@@ -38,7 +38,7 @@
       "console": "integratedTerminal"
     },
     {
-      "name": "Tests (all 273)",
+      "name": "Tests (all 318)",
       "type": "cppvsdbg",
       "request": "launch",
       "program": "${workspaceFolder}/build/bin/Release/rubik_tests.exe",

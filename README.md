@@ -225,7 +225,6 @@ tests/           GoogleTest suite
   TestDatabases.h  Shared access to the generated databases, so the binary
                    loads them at most twice rather than once per test file
 data/            Generated pattern databases (not in version control)
-bench-results/   Committed benchmark runs, CSV and text
 docs/screenshots/  Viewer screenshots used in this README
 ```
 
@@ -768,7 +767,7 @@ levels of every deep search run essentially unguided. That is the entire reason
 optimal length 14 is the practical ceiling, and no database within this memory
 budget changes it.
 
-Measured over 200,000 random states (`bench-results/phase9-heuristics.txt`):
+Measured over 200,000 random states (`rubiks_bench --suite distribution --with-7edge`):
 
 | Heuristic | mean | median | min | max |
 |---|---:|---:|---:|---:|
@@ -965,7 +964,7 @@ heuristic, ordering off -- only the worker count changes.
 | 4 | 6.82 | 25.83 | 3.79 | **3.57x** | 89% | 9,031,832 | 91.1 MB |
 | 8 | 4.36 | 29.14 | 6.68 | **5.58x** | 70% | 9,783,833 | 91.1 MB |
 
-Saved as `bench-results/phase10-scaling.txt`. Repeated runs vary by a few
+Reproduce with `rubiks_bench --suite threads`. Repeated runs vary by a few
 percent -- across two runs the speedups spanned 1.78-1.89x at two threads,
 3.40-3.57x at four and 5.41-5.58x at eight. The shape is stable; the exact
 figures are not, so treat them as approximate.
@@ -1517,13 +1516,14 @@ scramble has a 6-move optimum. Grouping by scramble length would blur two
 different difficulties together.
 
 ```bash
-rubiks_bench --suite baseline --samples 4 --out bench-results/baseline.csv
+rubiks_bench --suite baseline --samples 4 --out baseline.csv
 rubiks_bench --suite micro
 rubiks_bench --help
 ```
 
-Results land in `bench-results/` as CSV, with the machine and build recorded as
-header comments so a file stands on its own.
+`--out` writes CSV with the machine and build recorded as header comments, so
+a result file stands on its own and can be compared against a run from another
+machine.
 
 ### Baseline configurations
 
@@ -1594,7 +1594,7 @@ generated node, times roughly 1.8 million generated nodes for an optimal-13
 solve, gives about 340 ms against 325 ms measured. The model accounts for the
 runtime.
 
-Baseline profile, before any optimisation (`bench-results/micro-baseline.txt`):
+Baseline profile, before any optimisation (`rubiks_bench --suite micro`):
 
 | Primitive | ns/op | per node | ns/node |
 |---|---:|---:|---:|

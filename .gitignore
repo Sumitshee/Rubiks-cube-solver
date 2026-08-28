@@ -53,10 +53,11 @@ data/*.db.tmp
 # ---------------------------------------------------------------------------
 # Benchmark output
 #
-# The committed .csv and .txt runs are the evidence behind the numbers in the
-# README and are kept deliberately; ad-hoc JSON dumps are not.
+# Raw runs from `rubiks_bench --out`. Machine-specific and regenerated on
+# demand, so they stay local; the numbers that matter are quoted in the README
+# alongside the command that reproduces them.
 # ---------------------------------------------------------------------------
-bench-results/*.json
+bench-results/
 
 # ---------------------------------------------------------------------------
 # CMake and CTest
