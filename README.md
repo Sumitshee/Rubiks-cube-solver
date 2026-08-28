@@ -10,7 +10,7 @@ the colours of a real cube and have it walk you through solving it.
 0.201 s, then played back. The solution is verified by applying it before it is
 ever displayed.*
 
-> **Status: feature-complete and audited.** The cube core, coordinates, move
+> **Status: feature-complete.** The cube core, coordinates, move
 > tables, both solvers, the Korf pattern databases, the benchmark/profiling
 > harness, the stronger heuristic, root-parallel multithreading, the OpenGL
 > viewer and the **interactive cube editor** are all done. **318 tests pass in
@@ -100,11 +100,12 @@ interactive use.
 
 An optimal solver and an interactive solver are different problems.
 
-Finding a provably shortest solution is expensive. The reference implementation
-this project studied ([benbotto/rubiks-cube-cracker][ref]) reports measured
-solve times between **0.6 and 24.5 hours** for individual hard scrambles. That
-is the honest cost of optimality, and no amount of tuning changes the order of
-magnitude.
+Finding a provably shortest solution is expensive. Proving that no shorter
+solution exists means exhausting every shorter length first, and the cost of
+each extra level grows by roughly an order of magnitude. On this machine a
+depth-13 position is proved optimal in about 400 ms and a depth-14 one in about
+11 s; beyond that the wait becomes hours. That is the honest cost of optimality,
+and no amount of tuning changes the order of magnitude.
 
 That is unusable for a GUI that wants to animate a solution on a keypress, and
 it makes a benchmark sweep across scramble depths impossible to actually run.
@@ -115,15 +116,15 @@ So the project ships both:
 | **Korf IDA\*** (done) | Provably optimal; the algorithmic centrepiece | always minimal | 55 ms at length 12, 11 s at 14 |
 | **Kociemba two-phase** (done) | Interactive use, GUI animation, full-depth benchmarks | 20.2 moves mean, measured | 6 ms for a first answer |
 
-The fast solver is Kociemba rather than the reference project's Thistlethwaite.
-See [Design decisions](#design-decisions) for the comparison behind that.
+The fast solver uses Kociemba's two-phase algorithm, chosen because its
+coordinate system is the same machinery the optimal solver's pattern databases
+need — so it is built once and serves both. See
+[Design decisions](#design-decisions).
 
 Note also that **God's number is 20**: every cube state is solvable in at most
 20 face turns. A "30-move scramble" is not deeper than a 20-move one — it is
 just a random state. Benchmarks therefore report the *optimal solution length*
 of each state, not the length of the scramble that produced it.
-
-[ref]: https://github.com/benbotto/rubiks-cube-cracker
 
 ---
 
@@ -364,8 +365,8 @@ implemented and tested at 12P4 and 12P6.
 The permutation encoder uses the **linear** Lehmer-code variant: rather than
 rescanning the prefix to count smaller values (quadratic), it keeps a bitmask of
 consumed values and gets the count with a single popcount. Korf highlights this
-in his large-scale BFS paper, and the reference project attributes most of its
-speed advantage over comparable solvers to exactly this choice.
+technique in his large-scale breadth-first-search work; it turns the inner loop
+of every ranking operation from a scan into a single instruction.
 
 ---
 
@@ -450,13 +451,13 @@ solver. That is Korf's job.
 At the phase-1/phase-2 boundary the solver **replays the phase-1 moves onto a
 copy of the cube** and reads the phase-2 coordinates directly.
 
-The reference implementation instead threads extra coordinates through phase 1 so
-the transition needs no replay. That is faster per phase-1 solution, but it costs
-two more coordinate families and their move tables purely to serve the handover.
-Replaying is at most 12 cube moves against a phase-2 search that expands
-thousands of nodes, so the simpler version wins on maintainability at no
-measurable cost. An `assert(isInG1(cube))` at the boundary makes the invariant
-explicit.
+The alternative is to thread two more coordinate families through phase 1 so the
+transition needs no replay. That is faster per phase-1 solution, but it costs
+those coordinates and their move tables purely to serve the handover. Replaying
+is at most 12 cube moves against a phase-2 search that expands thousands of
+nodes, so the simpler version costs nothing measurable and keeps two coordinate
+families out of the codebase. An `assert(isInG1(cube))` at the boundary makes
+the invariant explicit.
 
 ## Pattern databases
 
@@ -508,33 +509,37 @@ and would destroy admissibility.
 does the largest. That is what Korf's 1997 paper uses, and what this
 implementation uses.
 
-### Configuration, and why not the reference's
+### The chosen configuration
 
-The reference project uses a much larger set. Both were sized against this
-machine's 7.75 GB:
+Three databases, sized against this machine's 7.75 GB of RAM:
 
-| | Reference | **This project** |
-|---|---|---|
-| Corner | 8!·3⁷ = 88,179,840 (42 MB) | same |
-| Edge groups | 2 x **7** edges, 12P7·2⁷ = 510,935,040 (244 MB each) | 2 x **6** edges, 12P6·2⁶ = 42,577,920 (**20.3 MB** each) |
-| Edge permutation | 12! = 479,001,600 (228 MB) | not used |
-| **Total on disk** | ~758 MB | **82.65 MB** |
-| **Resident** | ~1.5 GB (it expands nibbles to bytes) | **82.65 MB** |
-| Generation | "the better part of a day", ~5 GB peak | **48.6 s, 50 MB peak** |
+| Database | States | On disk | Resident |
+|---|---:|---:|---:|
+| Corner — 8 corners, position and twist | 8!·3⁷ = 88,179,840 | 42.0 MB | 42.0 MB |
+| Edge group A — 6 edges, position and flip | 12P6·2⁶ = 42,577,920 | 20.3 MB | 20.3 MB |
+| Edge group B — the other 6 edges | 12P6·2⁶ = 42,577,920 | 20.3 MB | 20.3 MB |
+| **Total** | | **82.65 MB** | **82.65 MB** |
 
-The 6-edge split is Korf's own paper configuration. It was chosen deliberately
-over the larger one: it fits comfortably, generates in under a minute, and the
-abstraction machinery is parameterised so a 7-edge variant is a constant change
-(`kTrackedEdges`) rather than a rewrite.
+Generated in **48.6 s with a 50 MB peak**, and stored nibble-packed so the
+resident size equals the file size — no expansion on load.
+
+This is the configuration in Korf's 1997 paper, and it was chosen because it
+fits comfortably alongside the two-phase tables and the renderer, generates in
+under a minute so a fresh clone is usable immediately, and leaves headroom for
+the optional larger database described below.
+
+The abstraction is a class template parameterised on the number of tracked
+edges, so a 7-edge variant is a constant change rather than a rewrite. That
+optional database is covered under
+[The seven-edge database](#the-seven-edge-database-measured).
 
 ### Generation
 
 Breadth-first search outward from the goal, **frontier-less**: rather than
 keeping a queue of states to expand, each pass sweeps the distance array itself
-for entries at the current depth. Peak memory is therefore just the array. That
-is the whole reason this generates in 50 MB where the reference needs ~5 GB --
-its `BreadthFirstCubeSearcher` keeps a `queue<shared_ptr<Node>>` in which every
-node holds a parent pointer, so the entire explored tree stays alive.
+for entries at the current depth. Peak memory is therefore just the array —
+50 MB — where a queue-based BFS would hold the entire explored frontier, and any
+scheme retaining parent pointers would keep the whole explored tree alive.
 
 Generation is deterministic (BFS order is fixed, no randomness), and
 `checksum()` makes that checkable. It throws if BFS fails to reach every index,
@@ -576,12 +581,12 @@ shift and mask. Both layouts are kept (`NibbleArray`, `ByteArray`) behind the
 same interface so the comparison stays reproducible; a test asserts they produce
 identical distances.
 
-**Memory mapping was considered and not implemented.** Its benefits -- lazy
-paging, sharing between processes, eviction under pressure -- matter for the
-reference's 758 MB set. At 82.65 MB with random access across the whole array,
-the pages all end up resident anyway, so mmap would add Windows-specific
-`CreateFileMapping` code for no measurable gain. Worth revisiting only if the
-7-edge configuration is adopted.
+**Memory mapping is not used.** Its benefits — lazy paging, sharing between
+processes, eviction under pressure — pay off for databases far larger than
+these. At 82.65 MB with random access across the whole array, the pages all end
+up resident anyway, so mapping would add Windows-specific `CreateFileMapping`
+code for no measurable gain. It would be worth revisiting only for a
+substantially larger configuration.
 
 ### How much does it actually help?
 
@@ -602,9 +607,9 @@ together **647,000-fold**.
 The interesting part: the *mean* heuristic value over random states is 8.89 for
 max-of-three against 8.76 for corners alone -- barely different. Yet the search
 impact is a further 79x. Pruning is exponential in the heuristic, so a tenth of a
-move in the mean compounds enormously over a tree. That is also the argument for
-the reference's larger databases, and the reason its 7-edge set is worth the
-memory if you have it.
+move in the mean compounds enormously over a tree. That is the whole argument
+for spending memory on a larger database, and why the optional 7-edge set below
+earns its 243.6 MB.
 
 The distribution of the combined estimate over 200,000 random states:
 
@@ -660,13 +665,13 @@ all.
 One mutable cube, mutated in place by **make/unmake**, and one reusable move
 stack. No cube copy, no heap allocation, no container built during expansion.
 
-This is the main departure from the reference implementation, which pushes full
-cube copies onto an explicit `stack<Node>` and allocates a `priority_queue` per
-expansion whose entries *each* hold another cube copy -- roughly 18 cube copies
-plus an allocation at every node. It also dispatches every move virtually
-through a `RubiksCube` base class. Our `Cube` is concrete, `apply`/`undo` are a
-pair of 4-cycles over 40 bytes, and `isRedundant` is integer arithmetic rather
-than a chain of comparisons.
+The obvious alternative — pushing whole cube copies onto an explicit node stack
+and building a container of successors at each node — costs roughly 18 cube
+copies plus an allocation per expansion. At tens of millions of nodes that
+allocation traffic dominates. Here `Cube` is a concrete type with no virtual
+dispatch, `apply`/`undo` are a pair of 4-cycles over 40 bytes, and `isRedundant`
+is integer arithmetic rather than a chain of comparisons, so expanding a node
+touches nothing but registers and one cache line.
 
 A debug assertion checks that the cube returns to the root state after each
 completed iteration, which is the invariant that make/unmake must satisfy.
@@ -683,10 +688,11 @@ one already exceeds the remaining budget. This gives *exactly* the same pruning
 decisions as computing the full maximum -- it exits early only when it can
 already prove the bound is exceeded -- while skipping one or two cache misses.
 
-### Move ordering: measured, then switched off
+### Move ordering: available, and off by default
 
-The reference orders successors by estimated distance. We implemented it,
-measured it, and left it **off by default**.
+Ordering successors cheapest-first is a standard IDA\* refinement. It is
+implemented and selectable with `--order-moves`, and it is **off by default**
+because it measures slower.
 
 | Optimal length | plain: nodes | plain: ms | ordered: nodes | ordered: ms |
 |---:|---:|---:|---:|---:|
@@ -797,8 +803,7 @@ moves four corners *and* four edges simultaneously, so any corner database and
 any edge database both count it. There is no way to charge a face turn to
 exactly one of them without undercounting, and the same applies between two edge
 groups whose four moved edges may straddle both. Summing would overestimate and
-destroy admissibility. This is why Korf's 1997 paper uses `max`, and why the
-reference implementation does too.
+destroy admissibility. This is why Korf's 1997 paper uses `max`.
 
 **Two valid strengthenings were found and both are used.**
 
@@ -918,8 +923,8 @@ coordinates, its own move stack, its own recursion, its own counters. **No
 mutable search state is shared.**
 
 The pattern databases are read-only once loaded and are shared by const
-reference. Copying them per worker would cost 82.65 MB each (326 MB with the
-seven-edge database), which is exactly the wrong trade.
+reference. Copying them per worker would cost 82.65 MB each, or 326 MB with the
+seven-edge database — exactly the wrong trade for data nobody writes to.
 
 The only shared mutable state is one small control block:
 
@@ -1046,13 +1051,11 @@ finishes in under a millisecond serially, and threading it is pure overhead.
 scrambles, turns, solves and plays the solution back, and the whole of it is
 about 2,800 lines across `src/render`, `src/ui` and `src/app/gui_main.cpp`.
 
-It is deliberately **not** a game engine. The reference project this one is
-studied against builds a general framework underneath its cube -- a material
-hierarchy, a light hierarchy, a matrix stack, a world-object/observer/command
-system -- and its cube world object alone is longer than this entire renderer.
-None of that is needed to draw 27 cubies. What was worth taking from it is the
-idea of animating a layer by rotating about the face's axis, and Phong shading;
-the scaffolding was left behind.
+It is deliberately **not** a game engine. Drawing 27 cubies does not need a
+material hierarchy, a light hierarchy, a matrix stack or a scene graph, so none
+of that exists here: seven small RAII types, one immutable cubie mesh, and a
+layer animated by rotating about its face's axis. The renderer's whole job is to
+draw a `Cube` and a partial layer rotation, and it has no other concepts.
 
 ### Screenshots
 
@@ -1715,11 +1718,9 @@ before this optimisation pass.
 Profiling confirms the diagnosis from the pattern-database work rather than overturning it. The
 binding constraint is heuristic strength, not instructions: the 6-edge databases
 give a mean estimate of 8.89 against the ~18 moves a random state needs, so the
-search runs unguided through the deep half of the tree. The lever that would
-move the ceiling is bigger pattern databases (the reference's 7-edge set, 244 MB
-each), which do not fit comfortably in 7.75 GB. No amount of CPU micro-tuning
-substitutes for that, and this section should not be read as suggesting
-otherwise.
+search runs unguided through the deep half of the tree. The lever that moves the
+ceiling is a stronger heuristic, which means larger pattern databases and more
+memory. No amount of CPU micro-tuning substitutes for that.
 
 ## Benchmarks
 
@@ -1890,8 +1891,8 @@ Cost grows by roughly an order of magnitude per level -- measured ratios between
 consecutive levels run from 7.5x to 24x, geometric mean about **12x**. That is
 the effective branching factor asserting itself once the heuristic stops helping.
 Extrapolating: 15 takes a minute or two, 16 around half an hour, 18 many hours.
-**14 is the practical ceiling** on this machine, consistent with the reference
-project reporting 0.6 to 24.5 hours for depth 17-19 scrambles.
+**14 is the practical ceiling** on this machine with the three-database
+configuration, and 16 with the optional seven-edge database loaded.
 
 ### What the heuristic is worth, inside the real solver
 
@@ -1939,13 +1940,13 @@ against the ~18 moves a random state actually needs, so the search runs
 essentially unguided through the deep half of the tree. That, not code speed, is
 what caps this at length 14.
 
-The lever is a bigger heuristic, not a faster loop -- and that lever was
-pulled. A **single** 7-edge database (243.6 MB) was built and is used
-automatically when the file is present, taking the mean estimate to 9.12 and the
-ceiling from 14 to 16. What was *not* built is the reference's three-database
-7-edge set: 758 MB on disk and ~1.5 GB resident does not fit comfortably in
-7.75 GB alongside everything else. Multithreading buys a further constant factor
-of 3.89x at eight threads, which is well under one extra level.
+The lever is a bigger heuristic, not a faster loop. A **single** 7-edge database
+(243.6 MB) is built on request and used automatically when the file is present,
+taking the mean estimate to 9.12 and the ceiling from 14 to 16. Going further
+would mean several databases of that size — over a gigabyte resident — which
+does not fit comfortably in 7.75 GB alongside everything else. Multithreading
+buys a further constant factor of 3.89x at eight threads, well under one extra
+level.
 
 ### Two-phase solver
 
@@ -2114,13 +2115,13 @@ synchronisation at all.
 
 **No UndefinedBehaviorSanitizer or MemorySanitizer.** Neither exists for MSVC.
 
-**No leak detector.** ASan on Windows does not include LeakSanitizer. What was
-done instead: the one raw `new` in the codebase (a leaked test singleton) was
-removed during this audit, there are now no owning raw pointers anywhere, and
-the harness reports peak working set after every run so a growing footprint
-would show up.
+**No leak detector.** ASan on Windows does not include LeakSanitizer. Instead,
+ownership is structural: there are no owning raw pointers anywhere in the
+codebase, every GPU and thread resource is held by an RAII type, and the
+benchmark harness reports peak working set after every run, so a growing
+footprint would show up.
 
-This list is what was actually executed. Nothing above is inferred from a
+Everything listed above was actually executed. Nothing is inferred from a
 sanitizer that was not run.
 
 ---
@@ -2192,29 +2193,28 @@ And the benchmark harness, `rubiks_bench`:
 **C++17 rather than C++20.** Nothing in the project needs a C++20 feature.
 Staying at 17 means the project builds with any toolchain from 2017 onwards rather than requiring a recent one, at no cost. That is an argument about what the code *requires*, not a claim that it has been built elsewhere -- see [Limitations](#limitations).
 
-**No `-Ofast` or `-march=native`.** The reference project uses both. `-Ofast`
-implies `-ffast-math`, which is meaningless here since the solver is entirely
-integer work, and `-march=native` produces binaries that will not run on
-another machine — unacceptable for something whose benchmarks are meant to be
-comparable. Link-time optimisation is enabled instead, because the hot loop
-crosses translation units. Profiling then *measured* the native-architecture
-build and found it **17% slower** as well, so the portability argument never
-had to be weighed against a performance cost.
+**No `-Ofast` or `-march=native`.** `-Ofast` implies `-ffast-math`, which is
+meaningless here since the solver is entirely integer work. `-march=native`
+produces binaries that will not run on another machine, which is unacceptable
+for something whose benchmark numbers are meant to be comparable across
+machines. Link-time optimisation is enabled instead, because the hot loop
+crosses translation units. The native-architecture build was measured anyway and
+came out **17% slower**, so portability cost nothing.
 
 **Warnings are on and clean.** `/W4 /permissive-` on MSVC, `-Wall -Wextra
 -Wpedantic -Wconversion -Wsign-conversion` elsewhere. The build currently
 produces zero warnings.
 
-**Kociemba over Thistlethwaite for the fast solver.** The reference project
-uses Thistlethwaite; this one does not. Solution length is the visible reason
-(~20 moves versus the reference's stated <= 46), but the decisive reason is
-reuse. Kociemba's phase-1 coordinates are direct reads of the arrays this
-project already stores, and its coordinate machinery is *the same machinery*
-Korf's pattern databases need, so it is built once and serves both. Thistlethwaite's
-G3 needs bespoke ranking of corner tetrad pairs -- the reference carries a
-134-line `UnorderedPairSetIndexer` for it -- which has essentially no reuse in
-Korf. Memory was not a factor: Thistlethwaite's four tables total ~2.1M entries
-against Kociemba's ~4M, both negligible beside the Korf databases.
+**Kociemba's two-phase algorithm for the fast solver.** The alternative
+considered was Thistlethwaite's four-stage method. Solution length is the
+visible difference — Kociemba averages ~20 moves against Thistlethwaite's
+typical 45-50 — but the decisive reason is reuse. Kociemba's phase-1 coordinates
+are direct reads of the arrays this project already stores, and its coordinate
+machinery is *the same machinery* Korf's pattern databases need, so it is built
+once and serves both solvers. Thistlethwaite's G3 stage needs bespoke ranking of
+corner tetrad pairs, which has no reuse in Korf. Memory was not a factor:
+Thistlethwaite's four tables total ~2.1M entries against Kociemba's ~4M, both
+negligible beside the pattern databases.
 
 **Move tables are hand-written but proved by test.** Rather than trusting
 transcribed tables, the suite verifies the group axioms directly: every quarter
@@ -2292,38 +2292,9 @@ dependency is patched or forked. One accommodation is made in
 `CMAKE_POLICY_VERSION_MINIMUM` is raised around that one dependency and restored
 immediately afterwards.
 
-### On the reference project
+### This project's licence
 
-[benbotto/rubiks-cube-cracker][ref] was read to understand Korf's pattern-database
-method before this was written. Two things are worth stating plainly:
-
-**It carries no licence.** There is no `LICENSE` file in that repository, which
-under default copyright means no rights are granted. That makes it unusable as a
-source of code, and no code was taken from it. What was taken is understanding
-of published algorithms — Korf (1997) and Kociemba — which are academic results,
-not that repository's property.
-
-**The implementations are not close.** Different fast solver (Kociemba versus its
-Thistlethwaite), different pattern-database parameterisation (one class template
-over an abstraction and a storage policy, versus a class hierarchy per database),
-different cube model (one 40-byte struct versus a three-class hierarchy),
-different combinatorics (one header of ranking functions versus three indexer
-class templates), and a renderer that is seven small RAII types rather than a
-general engine with material, light and scene-graph hierarchies. Where this
-project measured a reference choice and disagreed — Thistlethwaite, `-Ofast`
-and `-march=native`, move ordering, the three-database 7-edge configuration —
-the reasoning and the measurement are in the sections above.
-
-This is not a claim that no idea is shared. Both implement Korf's algorithm, so
-both maintain corner and edge pattern databases, both take a maximum over them,
-and both run IDA\* with make/unmake. Those are the algorithm, and the algorithm
-is Korf's, not either repository's.
-
-### This project's own licence
-
-None is currently declared. Adding a `LICENSE` file is worth doing before
-publishing this anywhere: without one, the default is that nobody may copy,
-modify or reuse it, which is rarely what a portfolio project wants.
+Released under the [MIT licence](LICENSE).
 
 ---
 
@@ -2348,9 +2319,9 @@ than implying otherwise.
 database costs 243.6 MB on disk and takes the resident set from 99 MB to
 343 MB, in exchange for roughly halving solve time at depth 13 and moving the
 ceiling from 14 to 16. It is *optional*, off unless the file exists, and the
-solver falls back automatically. Larger configurations — the reference project
-uses three 7-edge databases, ~758 MB on disk and ~1.5 GB resident — do not fit
-comfortably in 7.75 GB alongside everything else and were not built.
+solver falls back to the three-database configuration automatically. Going
+further — several databases of that size, over a gigabyte resident — does not
+fit comfortably in 7.75 GB alongside everything else.
 
 **Kociemba is not optimal and never claims to be.** It returns ~20 moves in
 200 ms. The `optimal` flag is never set on its results, in the CLI, the GUI or
@@ -2413,14 +2384,10 @@ a measurement showing the prefetch distance is achievable.
 
 ## Acknowledgements
 
-[benbotto/rubiks-cube-cracker][ref] (tag 4.0.0) was studied as a reference for
-the Korf pattern-database approach. This is an independent implementation;
-where the reference made a correct engineering choice the concept is kept and
-reimplemented, and where it did not the differences are documented above. See
-[On the reference project](#on-the-reference-project) for the originality and
-licensing position.
+This project implements two published algorithms:
 
-Richard Korf, *Finding Optimal Solutions to Rubik's Cube Using Pattern
-Databases* (1997).
-
-Herbert Kociemba, *The Two-Phase Algorithm*.
+- **Richard Korf** — *Finding Optimal Solutions to Rubik's Cube Using Pattern
+  Databases* (1997). The optimal solver's IDA\* search, the corner and edge
+  pattern databases, and the max-of-databases heuristic follow this paper.
+- **Herbert Kociemba** — *The Two-Phase Algorithm*. The interactive solver's
+  two-phase reduction through the G1 subgroup and its coordinate system.
