@@ -1,6 +1,14 @@
 # Rubik's Cube Solver
 
-A Rubik's Cube solver and 3D visualiser in modern C++.
+A Rubik's Cube solver and 3D visualiser in modern C++. It finds a solution in
+about 200 ms, or a **provably shortest** one given longer — and you can type in
+the colours of a real cube and have it walk you through solving it.
+
+![Scrambling and solving](docs/demo.gif)
+
+*A 15-move scramble, solved by the Kociemba two-phase solver in 18 moves and
+0.201 s, then played back. The solution is verified by applying it before it is
+ever displayed.*
 
 > **Status: feature-complete and audited.** The cube core, coordinates, move
 > tables, both solvers, the Korf pattern databases, the benchmark/profiling
