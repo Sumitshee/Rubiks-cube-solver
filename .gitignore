@@ -1,0 +1,95 @@
+# ---------------------------------------------------------------------------
+# Build output
+# ---------------------------------------------------------------------------
+# The glob covers the variant trees too -- build-asan/, build-nogui/ and
+# anything else configured alongside the default one.
+build*/
+out/
+debug/
+release/
+cmake-build-*/
+
+# ---------------------------------------------------------------------------
+# Compiled and linked artefacts
+#
+# Everything the project actually produces lands inside build*/ and is already
+# covered above. These extension rules are belt-and-braces for a build
+# configured somewhere unexpected, or with a different toolchain.
+# ---------------------------------------------------------------------------
+
+# MSVC
+*.exe
+*.dll
+*.lib
+*.obj
+*.pdb
+*.ilk
+*.exp
+*.idb
+*.iobj
+*.ipdb
+*.res
+*.tlog
+*.dir/
+
+# GCC / Clang
+*.o
+*.a
+*.so
+*.so.*
+*.dylib
+*.d
+
+# ---------------------------------------------------------------------------
+# Generated pattern databases
+#
+# Tens to hundreds of megabytes each, and rebuilt in about a minute by
+# `rubiks_solver --generate-pdb`. Named .db rather than .pdb to avoid colliding
+# with MSVC program databases.
+# ---------------------------------------------------------------------------
+data/*.db
+data/*.db.tmp
+
+# ---------------------------------------------------------------------------
+# Benchmark output
+#
+# The committed .csv and .txt runs are the evidence behind the numbers in the
+# README and are kept deliberately; ad-hoc JSON dumps are not.
+# ---------------------------------------------------------------------------
+bench-results/*.json
+
+# ---------------------------------------------------------------------------
+# CMake and CTest
+# ---------------------------------------------------------------------------
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+CTestTestfile.cmake
+Testing/
+compile_commands.json
+CMakeSettings.json
+CMakeUserPresets.json
+.ninja_deps
+.ninja_log
+
+# ---------------------------------------------------------------------------
+# IDE and editor
+#
+# .vscode/ is deliberately NOT ignored: launch.json and tasks.json give anyone
+# who clones this a working F5 and Ctrl+Shift+B out of the box.
+# ---------------------------------------------------------------------------
+.vs/
+*.user
+*.sln
+*.vcxproj*
+*.VC.db
+*.opendb
+
+# ---------------------------------------------------------------------------
+# Misc
+# ---------------------------------------------------------------------------
+*.log
+*.tmp
+Thumbs.db
+desktop.ini
+.DS_Store

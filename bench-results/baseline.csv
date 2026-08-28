@@ -1,0 +1,100 @@
+# cpu,11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz
+# logical_cores,8
+# ram_gb,7.75
+# compiler,MSVC 1944
+# build,Release/RelWithDebInfo (NDEBUG)
+# timestamp,2026-08-26T22:55:11
+case_id,scramble,scramble_length,known_optimal,config,solver,heuristic,order_moves,threads,time_limit_ms,solution_length,milliseconds,nodes_expanded,nodes_generated,nodes_pruned,moves_skipped,iterations,initial_heuristic,final_threshold,proven_lower_bound,peak_memory_bytes,status,verified
+d6-0,R B2 L2 U' D' R2,6,6,kociemba-200ms,kociemba-two-phase,two-phase pruning tables,0,1,200,6,0.021,42,42,0,0,6,-1,-1,-1,103587840,solved,1
+d6-1,U2 R U F' U B',6,6,kociemba-200ms,kociemba-two-phase,two-phase pruning tables,0,1,200,6,0.021,71,71,0,0,5,-1,-1,-1,103587840,solved,1
+d6-2,B' U2 L' D' R L',6,6,kociemba-200ms,kociemba-two-phase,two-phase pruning tables,0,1,200,6,0.006,8,8,0,0,6,-1,-1,-1,103587840,solved,1
+d6-3,L' D F' U' L' D2,6,6,kociemba-200ms,kociemba-two-phase,two-phase pruning tables,0,1,200,6,0.004,7,7,0,0,6,-1,-1,-1,103587840,solved,1
+d8-0,D2 B' R' B2 U F' L2 D',8,8,kociemba-200ms,kociemba-two-phase,two-phase pruning tables,0,1,200,8,0.011,20,20,0,0,7,-1,-1,-1,103587840,solved,1
+d8-1,D2 B L' D F2 D' R L2,8,8,kociemba-200ms,kociemba-two-phase,two-phase pruning tables,0,1,200,8,0.031,157,157,0,0,7,-1,-1,-1,103587840,solved,1
+d8-2,U' R2 D2 R' U2 L2 U B',8,6,kociemba-200ms,kociemba-two-phase,two-phase pruning tables,0,1,200,6,0.016,114,114,0,0,5,-1,-1,-1,103587840,solved,1
+d8-3,R' B' D' B D B' U2 D',8,8,kociemba-200ms,kociemba-two-phase,two-phase pruning tables,0,1,200,8,0.105,253,253,0,0,8,-1,-1,-1,103587840,solved,1
+d10-0,F' B' U' D L' F D' F B2 U2,10,10,kociemba-200ms,kociemba-two-phase,two-phase pruning tables,0,1,200,10,10.694,73400,73400,0,0,10,-1,-1,-1,103587840,solved,1
+d10-1,U' B2 D' F' B2 D L' U' B2 U,10,10,kociemba-200ms,kociemba-two-phase,two-phase pruning tables,0,1,200,10,0.382,4306,4306,0,0,9,-1,-1,-1,103591936,solved,1
+d10-2,F2 B' U2 R' D F2 R' L2 F2 B,10,10,kociemba-200ms,kociemba-two-phase,two-phase pruning tables,0,1,200,10,0.770,6783,6783,0,0,10,-1,-1,-1,103591936,solved,1
+d10-3,R D2 R L2 B L F L2 B2 D,10,10,kociemba-200ms,kociemba-two-phase,two-phase pruning tables,0,1,200,10,14.078,148925,148925,0,0,10,-1,-1,-1,103591936,solved,1
+d11-0,B' L D' R2 B2 U L' B U2 R B',11,11,kociemba-200ms,kociemba-two-phase,two-phase pruning tables,0,1,200,11,8.659,79537,79537,0,0,11,-1,-1,-1,103591936,solved,1
+d11-1,R D2 B2 L D R' B' R2 F2 L2 B',11,11,kociemba-200ms,kociemba-two-phase,two-phase pruning tables,0,1,200,11,42.258,274655,274655,0,0,11,-1,-1,-1,103591936,solved,1
+d11-2,L2 U' F2 D L D' L B' R' F L2,11,11,kociemba-200ms,kociemba-two-phase,two-phase pruning tables,0,1,200,11,7.356,76638,76638,0,0,10,-1,-1,-1,103591936,solved,1
+d11-3,D F R2 B R F' B U2 D' F' U,11,11,kociemba-200ms,kociemba-two-phase,two-phase pruning tables,0,1,200,11,10.266,96077,96077,0,0,10,-1,-1,-1,103591936,solved,1
+d12-0,B U B D B' D' B2 R2 F2 L' U B,12,12,kociemba-200ms,kociemba-two-phase,two-phase pruning tables,0,1,200,18,200.792,1455580,1455580,0,0,12,-1,-1,-1,103591936,solved,1
+d12-1,L2 B L B' D' F' D2 F' B' U B U',12,12,kociemba-200ms,kociemba-two-phase,two-phase pruning tables,0,1,200,12,48.719,398690,398690,0,0,11,-1,-1,-1,103591936,solved,1
+d12-2,B D2 L B' D2 B' L2 F' L U' R' B',12,12,kociemba-200ms,kociemba-two-phase,two-phase pruning tables,0,1,200,20,200.650,1345040,1345040,0,0,12,-1,-1,-1,103591936,solved,1
+d12-3,D2 F L B2 R L' B' L2 U2 D2 B' R',12,12,kociemba-200ms,kociemba-two-phase,two-phase pruning tables,0,1,200,12,50.691,314982,314982,0,0,11,-1,-1,-1,103591936,solved,1
+d13-0,R' U' L2 F D2 R D' R2 U' L F L2 D',13,13,kociemba-200ms,kociemba-two-phase,two-phase pruning tables,0,1,200,21,200.824,1346374,1346374,0,0,13,-1,-1,-1,103591936,solved,1
+d13-1,R F D R L B' L2 F' B' D2 B' D' R',13,13,kociemba-200ms,kociemba-two-phase,two-phase pruning tables,0,1,200,18,200.460,1371883,1371883,0,0,13,-1,-1,-1,103591936,solved,1
+d13-2,U' R2 B L' F2 D' L U L' B2 U F2 B,13,13,kociemba-200ms,kociemba-two-phase,two-phase pruning tables,0,1,200,13,200.497,1629451,1629451,0,0,12,-1,-1,-1,103591936,solved,1
+d13-3,B R F R2 B' D' B' L' U R' B D2 F,13,13,kociemba-200ms,kociemba-two-phase,two-phase pruning tables,0,1,200,20,200.461,1449706,1449706,0,0,12,-1,-1,-1,103591936,solved,1
+d6-0,R B2 L2 U' D' R2,6,6,ida-no-heuristic,korf-ida*,none,0,1,300000,6,91.085,2731826,2731820,0,951879,7,0,6,6,103608320,optimal,1
+d6-1,U2 R U F' U B',6,6,ida-no-heuristic,korf-ida*,none,0,1,300000,6,258.958,7842925,7842919,0,2732946,7,0,6,6,103608320,optimal,1
+d6-2,B' U2 L' D' R L',6,6,ida-no-heuristic,korf-ida*,none,0,1,300000,6,113.256,3563691,3563685,0,1241763,7,0,6,6,103608320,optimal,1
+d6-3,L' D F' U' L' D2,6,6,ida-no-heuristic,korf-ida*,none,0,1,300000,6,189.786,5906943,5906937,0,2058318,7,0,6,6,103608320,optimal,1
+d8-2,U' R2 D2 R' U2 L2 U B',8,6,ida-no-heuristic,korf-ida*,none,0,1,300000,6,257.332,7929757,7929751,0,2763201,7,0,6,6,103608320,optimal,1
+d6-0,R B2 L2 U' D' R2,6,6,ida-corner-pdb,korf-ida*,corner PDB,0,1,300000,6,0.105,70,737,668,252,2,5,6,6,103620608,optimal,1
+d6-1,U2 R U F' U B',6,6,ida-corner-pdb,korf-ida*,corner PDB,0,1,300000,6,0.017,12,103,91,24,1,6,6,6,103620608,optimal,1
+d6-2,B' U2 L' D' R L',6,6,ida-corner-pdb,korf-ida*,corner PDB,0,1,300000,6,0.080,59,636,578,216,2,5,6,6,103620608,optimal,1
+d6-3,L' D F' U' L' D2,6,6,ida-corner-pdb,korf-ida*,corner PDB,0,1,300000,6,0.023,20,189,169,66,1,6,6,6,103620608,optimal,1
+d8-0,D2 B' R' B2 U F' L2 D',8,8,ida-corner-pdb,korf-ida*,corner PDB,0,1,300000,8,0.066,57,613,556,207,1,8,8,8,103620608,optimal,1
+d8-1,D2 B L' D F2 D' R L2,8,8,ida-corner-pdb,korf-ida*,corner PDB,0,1,300000,8,0.221,229,2609,2381,885,2,7,8,8,103620608,optimal,1
+d8-2,U' R2 D2 R' U2 L2 U B',8,6,ida-corner-pdb,korf-ida*,corner PDB,0,1,300000,6,0.010,10,82,72,24,1,6,6,6,103620608,optimal,1
+d8-3,R' B' D' B D B' U2 D',8,8,ida-corner-pdb,korf-ida*,corner PDB,0,1,300000,8,0.059,60,649,590,213,2,7,8,8,103620608,optimal,1
+d10-0,F' B' U' D L' F D' F B2 U2,10,10,ida-corner-pdb,korf-ida*,corner PDB,0,1,300000,10,134.800,149363,1744728,1595370,627264,6,5,10,10,103620608,optimal,1
+d10-1,U' B2 D' F' B2 D L' U' B2 U,10,10,ida-corner-pdb,korf-ida*,corner PDB,0,1,300000,10,7.073,9317,106301,96986,36789,3,8,10,10,103620608,optimal,1
+d10-2,F2 B' U2 R' D F2 R' L2 F2 B,10,10,ida-corner-pdb,korf-ida*,corner PDB,0,1,300000,10,31.853,31179,360835,329659,125943,4,7,10,10,103620608,optimal,1
+d10-3,R D2 R L2 B L F L2 B2 D,10,10,ida-corner-pdb,korf-ida*,corner PDB,0,1,300000,10,17.210,14382,162860,148479,55890,2,9,10,10,103620608,optimal,1
+d11-0,B' L D' R2 B2 U L' B U2 R B',11,11,ida-corner-pdb,korf-ida*,corner PDB,0,1,300000,11,187.438,171922,1964911,1792991,675558,3,9,11,11,103620608,optimal,1
+d11-1,R D2 B2 L D R' B' R2 F2 L2 B',11,11,ida-corner-pdb,korf-ida*,corner PDB,0,1,300000,11,192.803,159011,1808791,1649782,616995,3,9,11,11,103620608,optimal,1
+d11-2,L2 U' F2 D L D' L B' R' F L2,11,11,ida-corner-pdb,korf-ida*,corner PDB,0,1,300000,11,88.148,68745,778909,710165,262869,2,10,11,11,103620608,optimal,1
+d11-3,D F R2 B R F' B U2 D' F' U,11,11,ida-corner-pdb,korf-ida*,corner PDB,0,1,300000,11,119.939,131855,1524550,1392699,534801,5,7,11,11,103620608,optimal,1
+d6-0,R B2 L2 U' D' R2,6,6,ida-max-of-three,korf-ida*,max of 3 PDBs,0,1,300000,6,0.013,6,38,32,15,1,6,6,6,103636992,optimal,1
+d6-1,U2 R U F' U B',6,6,ida-max-of-three,korf-ida*,max of 3 PDBs,0,1,300000,6,0.009,6,31,25,6,1,6,6,6,103636992,optimal,1
+d6-2,B' U2 L' D' R L',6,6,ida-max-of-three,korf-ida*,max of 3 PDBs,0,1,300000,6,0.012,6,45,39,15,1,6,6,6,103636992,optimal,1
+d6-3,L' D F' U' L' D2,6,6,ida-max-of-three,korf-ida*,max of 3 PDBs,0,1,300000,6,0.010,6,39,33,18,1,6,6,6,103636992,optimal,1
+d8-0,D2 B' R' B2 U F' L2 D',8,8,ida-max-of-three,korf-ida*,max of 3 PDBs,0,1,300000,8,0.020,9,79,70,21,1,8,8,8,103636992,optimal,1
+d8-1,D2 B L' D F2 D' R L2,8,8,ida-max-of-three,korf-ida*,max of 3 PDBs,0,1,300000,8,0.036,13,140,128,42,2,7,8,8,103636992,optimal,1
+d8-2,U' R2 D2 R' U2 L2 U B',8,6,ida-max-of-three,korf-ida*,max of 3 PDBs,0,1,300000,6,0.010,6,43,37,9,1,6,6,6,103636992,optimal,1
+d8-3,R' B' D' B D B' U2 D',8,8,ida-max-of-three,korf-ida*,max of 3 PDBs,0,1,300000,8,0.026,10,94,85,30,2,7,8,8,103636992,optimal,1
+d10-0,F' B' U' D L' F D' F B2 U2,10,10,ida-max-of-three,korf-ida*,max of 3 PDBs,0,1,300000,10,0.403,92,1203,1113,369,3,8,10,10,103636992,optimal,1
+d10-1,U' B2 D' F' B2 D L' U' B2 U,10,10,ida-max-of-three,korf-ida*,max of 3 PDBs,0,1,300000,10,0.398,90,1133,1045,405,3,8,10,10,103636992,optimal,1
+d10-2,F2 B' U2 R' D F2 R' L2 F2 B,10,10,ida-max-of-three,korf-ida*,max of 3 PDBs,0,1,300000,10,1.280,170,2212,2044,762,3,8,10,10,103636992,optimal,1
+d10-3,R D2 R L2 B L F L2 B2 D,10,10,ida-max-of-three,korf-ida*,max of 3 PDBs,0,1,300000,10,1.064,297,3959,3663,1329,2,9,10,10,103636992,optimal,1
+d11-0,B' L D' R2 B2 U L' B U2 R B',11,11,ida-max-of-three,korf-ida*,max of 3 PDBs,0,1,300000,11,3.251,1464,19486,18024,6789,3,9,11,11,103636992,optimal,1
+d11-1,R D2 B2 L D R' B' R2 F2 L2 B',11,11,ida-max-of-three,korf-ida*,max of 3 PDBs,0,1,300000,11,5.370,2680,35914,33236,12252,3,9,11,11,103636992,optimal,1
+d11-2,L2 U' F2 D L D' L B' R' F L2,11,11,ida-max-of-three,korf-ida*,max of 3 PDBs,0,1,300000,11,3.301,1098,14719,13622,4965,2,10,11,11,103636992,optimal,1
+d11-3,D F R2 B R F' B U2 D' F' U,11,11,ida-max-of-three,korf-ida*,max of 3 PDBs,0,1,300000,11,3.010,1183,15574,14395,5619,5,7,11,11,103636992,optimal,1
+d12-0,B U B D B' D' B2 R2 F2 L' U B,12,12,ida-max-of-three,korf-ida*,max of 3 PDBs,0,1,300000,12,64.093,26185,348996,322814,122259,4,9,12,12,103636992,optimal,1
+d12-1,L2 B L B' D' F' D2 F' B' U B U',12,12,ida-max-of-three,korf-ida*,max of 3 PDBs,0,1,300000,12,24.886,9658,128536,118882,45228,5,8,12,12,103636992,optimal,1
+d12-2,B D2 L B' D2 B' L2 F' L U' R' B',12,12,ida-max-of-three,korf-ida*,max of 3 PDBs,0,1,300000,12,58.663,24399,326118,301722,112992,4,9,12,12,103636992,optimal,1
+d12-3,D2 F L B2 R L' B' L2 U2 D2 B' R',12,12,ida-max-of-three,korf-ida*,max of 3 PDBs,0,1,300000,12,30.028,14665,195482,180821,68406,5,8,12,12,103636992,optimal,1
+d13-0,R' U' L2 F D2 R D' R2 U' L F L2 D',13,13,ida-max-of-three,korf-ida*,max of 3 PDBs,0,1,300000,13,348.339,146482,1955452,1808974,681099,5,9,13,13,103636992,optimal,1
+d13-1,R F D R L B' L2 F' B' D2 B' D' R',13,13,ida-max-of-three,korf-ida*,max of 3 PDBs,0,1,300000,13,186.728,75735,1011523,935792,351615,5,9,13,13,103636992,optimal,1
+d13-2,U' R2 B L' F2 D' L U L' B2 U F2 B,13,13,ida-max-of-three,korf-ida*,max of 3 PDBs,0,1,300000,13,356.757,158848,2122920,1964076,736242,5,9,13,13,103636992,optimal,1
+d13-3,B R F R2 B' D' B' L' U R' B D2 F,13,13,ida-max-of-three,korf-ida*,max of 3 PDBs,0,1,300000,13,463.335,178828,2382753,2203930,836055,6,8,13,13,103636992,optimal,1
+d6-0,R B2 L2 U' D' R2,6,6,ida-default,korf-ida*,max of 3 PDBs,0,1,300000,6,0.019,6,38,32,15,1,6,6,6,103661568,optimal,1
+d6-1,U2 R U F' U B',6,6,ida-default,korf-ida*,max of 3 PDBs,0,1,300000,6,0.009,6,31,25,6,1,6,6,6,103661568,optimal,1
+d6-2,B' U2 L' D' R L',6,6,ida-default,korf-ida*,max of 3 PDBs,0,1,300000,6,0.012,6,45,39,15,1,6,6,6,103661568,optimal,1
+d6-3,L' D F' U' L' D2,6,6,ida-default,korf-ida*,max of 3 PDBs,0,1,300000,6,0.010,6,39,33,18,1,6,6,6,103661568,optimal,1
+d8-0,D2 B' R' B2 U F' L2 D',8,8,ida-default,korf-ida*,max of 3 PDBs,0,1,300000,8,0.019,9,79,70,21,1,8,8,8,103661568,optimal,1
+d8-1,D2 B L' D F2 D' R L2,8,8,ida-default,korf-ida*,max of 3 PDBs,0,1,300000,8,0.030,13,140,128,42,2,7,8,8,103661568,optimal,1
+d8-2,U' R2 D2 R' U2 L2 U B',8,6,ida-default,korf-ida*,max of 3 PDBs,0,1,300000,6,0.010,6,43,37,9,1,6,6,6,103661568,optimal,1
+d8-3,R' B' D' B D B' U2 D',8,8,ida-default,korf-ida*,max of 3 PDBs,0,1,300000,8,0.026,10,94,85,30,2,7,8,8,103661568,optimal,1
+d10-0,F' B' U' D L' F D' F B2 U2,10,10,ida-default,korf-ida*,max of 3 PDBs,0,1,300000,10,0.289,92,1203,1113,369,3,8,10,10,103661568,optimal,1
+d10-1,U' B2 D' F' B2 D L' U' B2 U,10,10,ida-default,korf-ida*,max of 3 PDBs,0,1,300000,10,0.209,90,1133,1045,405,3,8,10,10,103661568,optimal,1
+d10-2,F2 B' U2 R' D F2 R' L2 F2 B,10,10,ida-default,korf-ida*,max of 3 PDBs,0,1,300000,10,0.590,170,2212,2044,762,3,8,10,10,103661568,optimal,1
+d10-3,R D2 R L2 B L F L2 B2 D,10,10,ida-default,korf-ida*,max of 3 PDBs,0,1,300000,10,0.763,297,3959,3663,1329,2,9,10,10,103661568,optimal,1
+d11-0,B' L D' R2 B2 U L' B U2 R B',11,11,ida-default,korf-ida*,max of 3 PDBs,0,1,300000,11,3.303,1464,19486,18024,6789,3,9,11,11,103661568,optimal,1
+d11-1,R D2 B2 L D R' B' R2 F2 L2 B',11,11,ida-default,korf-ida*,max of 3 PDBs,0,1,300000,11,6.358,2680,35914,33236,12252,3,9,11,11,103661568,optimal,1
+d11-2,L2 U' F2 D L D' L B' R' F L2,11,11,ida-default,korf-ida*,max of 3 PDBs,0,1,300000,11,6.676,1098,14719,13622,4965,2,10,11,11,103661568,optimal,1
+d11-3,D F R2 B R F' B U2 D' F' U,11,11,ida-default,korf-ida*,max of 3 PDBs,0,1,300000,11,2.292,1183,15574,14395,5619,5,7,11,11,103661568,optimal,1
+d12-0,B U B D B' D' B2 R2 F2 L' U B,12,12,ida-default,korf-ida*,max of 3 PDBs,0,1,300000,12,72.087,26185,348996,322814,122259,4,9,12,12,103661568,optimal,1
+d12-1,L2 B L B' D' F' D2 F' B' U B U',12,12,ida-default,korf-ida*,max of 3 PDBs,0,1,300000,12,25.616,9658,128536,118882,45228,5,8,12,12,103661568,optimal,1
+d12-2,B D2 L B' D2 B' L2 F' L U' R' B',12,12,ida-default,korf-ida*,max of 3 PDBs,0,1,300000,12,55.706,24399,326118,301722,112992,4,9,12,12,103661568,optimal,1
+d12-3,D2 F L B2 R L' B' L2 U2 D2 B' R',12,12,ida-default,korf-ida*,max of 3 PDBs,0,1,300000,12,31.176,14665,195482,180821,68406,5,8,12,12,103661568,optimal,1
+d13-0,R' U' L2 F D2 R D' R2 U' L F L2 D',13,13,ida-default,korf-ida*,max of 3 PDBs,0,1,300000,13,336.774,146482,1955452,1808974,681099,5,9,13,13,103661568,optimal,1
+d13-1,R F D R L B' L2 F' B' D2 B' D' R',13,13,ida-default,korf-ida*,max of 3 PDBs,0,1,300000,13,175.678,75735,1011523,935792,351615,5,9,13,13,103661568,optimal,1
+d13-2,U' R2 B L' F2 D' L U L' B2 U F2 B,13,13,ida-default,korf-ida*,max of 3 PDBs,0,1,300000,13,357.331,158848,2122920,1964076,736242,5,9,13,13,103661568,optimal,1
+d13-3,B R F R2 B' D' B' L' U R' B D2 F,13,13,ida-default,korf-ida*,max of 3 PDBs,0,1,300000,13,429.130,178828,2382753,2203930,836055,6,8,13,13,103661568,optimal,1

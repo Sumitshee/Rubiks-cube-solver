@@ -1,0 +1,23 @@
+{
+  "cmake.sourceDirectory": "${workspaceFolder}",
+  "cmake.buildDirectory": "${workspaceFolder}/build",
+  "cmake.generator": "Visual Studio 17 2022",
+  "cmake.platform": "x64",
+  "cmake.configureOnOpen": false,
+  "cmake.buildBeforeRun": false,
+  "cmake.parallelJobs": 0,
+
+  "files.associations": {
+    "*.h": "cpp"
+  },
+  "C_Cpp.default.cppStandard": "c++17",
+  "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
+
+  "search.exclude": {
+    "**/build*": true,
+    "**/data": true
+  },
+  "files.watcherExclude": {
+    "**/build*/**": true
+  }
+}

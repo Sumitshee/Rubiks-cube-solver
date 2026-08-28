@@ -1,0 +1,103 @@
+# cpu,11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz
+# logical_cores,8
+# ram_gb,7.75
+# compiler,MSVC 1944
+# build,Release/RelWithDebInfo (NDEBUG)
+# timestamp,2026-08-27T11:18:22
+case_id,scramble,scramble_length,known_optimal,config,solver,heuristic,order_moves,threads,time_limit_ms,solution_length,milliseconds,nodes_expanded,nodes_generated,nodes_pruned,moves_skipped,iterations,initial_heuristic,final_threshold,proven_lower_bound,peak_memory_bytes,status,verified
+d6-0,R B2 L2 U' D' R2,6,6,ida-1-thread,korf-ida*,max of 3 PDBs,0,1,300000,6,0.010,6,38,32,15,1,6,6,6,103616512,optimal,1
+d6-1,U2 R U F' U B',6,6,ida-1-thread,korf-ida*,max of 3 PDBs,0,1,300000,6,0.008,6,31,25,6,1,6,6,6,103616512,optimal,1
+d6-2,B' U2 L' D' R L',6,6,ida-1-thread,korf-ida*,max of 3 PDBs,0,1,300000,6,0.011,6,45,39,15,1,6,6,6,103616512,optimal,1
+d6-3,L' D F' U' L' D2,6,6,ida-1-thread,korf-ida*,max of 3 PDBs,0,1,300000,6,0.009,6,39,33,18,1,6,6,6,103616512,optimal,1
+d8-0,D2 B' R' B2 U F' L2 D',8,8,ida-1-thread,korf-ida*,max of 3 PDBs,0,1,300000,8,0.016,9,79,70,21,1,8,8,8,103616512,optimal,1
+d8-1,D2 B L' D F2 D' R L2,8,8,ida-1-thread,korf-ida*,max of 3 PDBs,0,1,300000,8,0.026,13,140,128,42,2,7,8,8,103616512,optimal,1
+d8-2,U' R2 D2 R' U2 L2 U B',8,6,ida-1-thread,korf-ida*,max of 3 PDBs,0,1,300000,6,0.009,6,43,37,9,1,6,6,6,103620608,optimal,1
+d8-3,R' B' D' B D B' U2 D',8,8,ida-1-thread,korf-ida*,max of 3 PDBs,0,1,300000,8,0.019,10,94,85,30,2,7,8,8,103620608,optimal,1
+d10-0,F' B' U' D L' F D' F B2 U2,10,10,ida-1-thread,korf-ida*,max of 3 PDBs,0,1,300000,10,0.276,92,1203,1113,369,3,8,10,10,103620608,optimal,1
+d10-1,U' B2 D' F' B2 D L' U' B2 U,10,10,ida-1-thread,korf-ida*,max of 3 PDBs,0,1,300000,10,0.211,90,1133,1045,405,3,8,10,10,103620608,optimal,1
+d10-2,F2 B' U2 R' D F2 R' L2 F2 B,10,10,ida-1-thread,korf-ida*,max of 3 PDBs,0,1,300000,10,0.434,170,2212,2044,762,3,8,10,10,103620608,optimal,1
+d10-3,R D2 R L2 B L F L2 B2 D,10,10,ida-1-thread,korf-ida*,max of 3 PDBs,0,1,300000,10,0.937,297,3959,3663,1329,2,9,10,10,103620608,optimal,1
+d11-0,B' L D' R2 B2 U L' B U2 R B',11,11,ida-1-thread,korf-ida*,max of 3 PDBs,0,1,300000,11,3.375,1464,19486,18024,6789,3,9,11,11,103620608,optimal,1
+d11-1,R D2 B2 L D R' B' R2 F2 L2 B',11,11,ida-1-thread,korf-ida*,max of 3 PDBs,0,1,300000,11,9.062,2680,35914,33236,12252,3,9,11,11,103620608,optimal,1
+d11-2,L2 U' F2 D L D' L B' R' F L2,11,11,ida-1-thread,korf-ida*,max of 3 PDBs,0,1,300000,11,2.465,1098,14719,13622,4965,2,10,11,11,103620608,optimal,1
+d11-3,D F R2 B R F' B U2 D' F' U,11,11,ida-1-thread,korf-ida*,max of 3 PDBs,0,1,300000,11,2.704,1183,15574,14395,5619,5,7,11,11,103620608,optimal,1
+d12-0,B U B D B' D' B2 R2 F2 L' U B,12,12,ida-1-thread,korf-ida*,max of 3 PDBs,0,1,300000,12,77.575,26185,348996,322814,122259,4,9,12,12,103620608,optimal,1
+d12-1,L2 B L B' D' F' D2 F' B' U B U',12,12,ida-1-thread,korf-ida*,max of 3 PDBs,0,1,300000,12,26.100,9658,128536,118882,45228,5,8,12,12,103620608,optimal,1
+d12-2,B D2 L B' D2 B' L2 F' L U' R' B',12,12,ida-1-thread,korf-ida*,max of 3 PDBs,0,1,300000,12,75.955,24399,326118,301722,112992,4,9,12,12,103620608,optimal,1
+d12-3,D2 F L B2 R L' B' L2 U2 D2 B' R',12,12,ida-1-thread,korf-ida*,max of 3 PDBs,0,1,300000,12,52.392,14665,195482,180821,68406,5,8,12,12,103620608,optimal,1
+d13-0,R' U' L2 F D2 R D' R2 U' L F L2 D',13,13,ida-1-thread,korf-ida*,max of 3 PDBs,0,1,300000,13,418.879,146482,1955452,1808974,681099,5,9,13,13,103620608,optimal,1
+d13-1,R F D R L B' L2 F' B' D2 B' D' R',13,13,ida-1-thread,korf-ida*,max of 3 PDBs,0,1,300000,13,219.688,75735,1011523,935792,351615,5,9,13,13,103620608,optimal,1
+d13-2,U' R2 B L' F2 D' L U L' B2 U F2 B,13,13,ida-1-thread,korf-ida*,max of 3 PDBs,0,1,300000,13,505.818,158848,2122920,1964076,736242,5,9,13,13,103620608,optimal,1
+d13-3,B R F R2 B' D' B' L' U R' B D2 F,13,13,ida-1-thread,korf-ida*,max of 3 PDBs,0,1,300000,13,539.176,178828,2382753,2203930,836055,6,8,13,13,103620608,optimal,1
+d6-0,R B2 L2 U' D' R2,6,6,ida-2-thread,korf-ida*,max of 3 PDBs,0,2,300000,6,1.428,6,51,45,15,1,6,6,6,103821312,optimal,1
+d6-1,U2 R U F' U B',6,6,ida-2-thread,korf-ida*,max of 3 PDBs,0,2,300000,6,0.271,6,31,25,6,1,6,6,6,103821312,optimal,1
+d6-2,B' U2 L' D' R L',6,6,ida-2-thread,korf-ida*,max of 3 PDBs,0,2,300000,6,0.199,6,45,39,15,1,6,6,6,103821312,optimal,1
+d6-3,L' D F' U' L' D2,6,6,ida-2-thread,korf-ida*,max of 3 PDBs,0,2,300000,6,0.197,6,39,33,18,1,6,6,6,103821312,optimal,1
+d8-0,D2 B' R' B2 U F' L2 D',8,8,ida-2-thread,korf-ida*,max of 3 PDBs,0,2,300000,8,0.396,9,79,70,21,1,8,8,8,103821312,optimal,1
+d8-1,D2 B L' D F2 D' R L2,8,8,ida-2-thread,korf-ida*,max of 3 PDBs,0,2,300000,8,0.472,13,140,128,42,2,7,8,8,103821312,optimal,1
+d8-2,U' R2 D2 R' U2 L2 U B',8,6,ida-2-thread,korf-ida*,max of 3 PDBs,0,2,300000,6,0.198,6,43,37,9,1,6,6,6,103821312,optimal,1
+d8-3,R' B' D' B D B' U2 D',8,8,ida-2-thread,korf-ida*,max of 3 PDBs,0,2,300000,8,0.448,10,94,85,30,2,7,8,8,103821312,optimal,1
+d10-0,F' B' U' D L' F D' F B2 U2,10,10,ida-2-thread,korf-ida*,max of 3 PDBs,0,2,300000,10,0.735,92,1203,1113,369,3,8,10,10,103821312,optimal,1
+d10-1,U' B2 D' F' B2 D L' U' B2 U,10,10,ida-2-thread,korf-ida*,max of 3 PDBs,0,2,300000,10,0.970,138,1780,1644,624,3,8,10,10,103821312,optimal,1
+d10-2,F2 B' U2 R' D F2 R' L2 F2 B,10,10,ida-2-thread,korf-ida*,max of 3 PDBs,0,2,300000,10,1.060,191,2495,2306,858,3,8,10,10,103821312,optimal,1
+d10-3,R D2 R L2 B L F L2 B2 D,10,10,ida-2-thread,korf-ida*,max of 3 PDBs,0,2,300000,10,1.156,356,4744,4389,1611,2,9,10,10,103821312,optimal,1
+d11-0,B' L D' R2 B2 U L' B U2 R B',11,11,ida-2-thread,korf-ida*,max of 3 PDBs,0,2,300000,11,2.788,1464,19486,18024,6789,3,9,11,11,103821312,optimal,1
+d11-1,R D2 B2 L D R' B' R2 F2 L2 B',11,11,ida-2-thread,korf-ida*,max of 3 PDBs,0,2,300000,11,4.532,3005,40263,37260,13755,3,9,11,11,103821312,optimal,1
+d11-2,L2 U' F2 D L D' L B' R' F L2,11,11,ida-2-thread,korf-ida*,max of 3 PDBs,0,2,300000,11,2.003,1142,15314,14173,5163,2,10,11,11,103821312,optimal,1
+d11-3,D F R2 B R F' B U2 D' F' U,11,11,ida-2-thread,korf-ida*,max of 3 PDBs,0,2,300000,11,2.795,1183,15574,14395,5619,5,7,11,11,103821312,optimal,1
+d12-0,B U B D B' D' B2 R2 F2 L' U B,12,12,ida-2-thread,korf-ida*,max of 3 PDBs,0,2,300000,12,42.504,26185,348996,322814,122259,4,9,12,12,103821312,optimal,1
+d12-1,L2 B L B' D' F' D2 F' B' U B U',12,12,ida-2-thread,korf-ida*,max of 3 PDBs,0,2,300000,12,20.911,13653,181910,168261,63765,5,8,12,12,103821312,optimal,1
+d12-2,B D2 L B' D2 B' L2 F' L U' R' B',12,12,ida-2-thread,korf-ida*,max of 3 PDBs,0,2,300000,12,36.857,24399,326118,301722,112992,4,9,12,12,103821312,optimal,1
+d12-3,D2 F L B2 R L' B' L2 U2 D2 B' R',12,12,ida-2-thread,korf-ida*,max of 3 PDBs,0,2,300000,12,29.379,20361,271549,251192,94869,5,8,12,12,103821312,optimal,1
+d13-0,R' U' L2 F D2 R D' R2 U' L F L2 D',13,13,ida-2-thread,korf-ida*,max of 3 PDBs,0,2,300000,13,222.055,146482,1955452,1808974,681099,5,9,13,13,103821312,optimal,1
+d13-1,R F D R L B' L2 F' B' D2 B' D' R',13,13,ida-2-thread,korf-ida*,max of 3 PDBs,0,2,300000,13,115.774,75735,1011523,935792,351615,5,9,13,13,103821312,optimal,1
+d13-2,U' R2 B L' F2 D' L U L' B2 U F2 B,13,13,ida-2-thread,korf-ida*,max of 3 PDBs,0,2,300000,13,257.018,162176,2167490,2005318,751521,5,9,13,13,103821312,optimal,1
+d13-3,B R F R2 B' D' B' L' U R' B D2 F,13,13,ida-2-thread,korf-ida*,max of 3 PDBs,0,2,300000,13,304.044,191014,2545263,2354254,892854,6,8,13,13,103821312,optimal,1
+d6-0,R B2 L2 U' D' R2,6,6,ida-4-thread,korf-ida*,max of 3 PDBs,0,4,300000,6,0.901,6,38,32,15,1,6,6,6,103870464,optimal,1
+d6-1,U2 R U F' U B',6,6,ida-4-thread,korf-ida*,max of 3 PDBs,0,4,300000,6,0.396,6,31,25,6,1,6,6,6,103870464,optimal,1
+d6-2,B' U2 L' D' R L',6,6,ida-4-thread,korf-ida*,max of 3 PDBs,0,4,300000,6,0.323,6,45,39,15,1,6,6,6,103870464,optimal,1
+d6-3,L' D F' U' L' D2,6,6,ida-4-thread,korf-ida*,max of 3 PDBs,0,4,300000,6,0.298,6,39,33,18,1,6,6,6,103870464,optimal,1
+d8-0,D2 B' R' B2 U F' L2 D',8,8,ida-4-thread,korf-ida*,max of 3 PDBs,0,4,300000,8,0.283,9,79,70,21,1,8,8,8,103870464,optimal,1
+d8-1,D2 B L' D F2 D' R L2,8,8,ida-4-thread,korf-ida*,max of 3 PDBs,0,4,300000,8,0.631,13,140,128,42,2,7,8,8,103870464,optimal,1
+d8-2,U' R2 D2 R' U2 L2 U B',8,6,ida-4-thread,korf-ida*,max of 3 PDBs,0,4,300000,6,0.263,6,43,37,9,1,6,6,6,103870464,optimal,1
+d8-3,R' B' D' B D B' U2 D',8,8,ida-4-thread,korf-ida*,max of 3 PDBs,0,4,300000,8,0.529,10,94,85,30,2,7,8,8,103870464,optimal,1
+d10-0,F' B' U' D L' F D' F B2 U2,10,10,ida-4-thread,korf-ida*,max of 3 PDBs,0,4,300000,10,1.149,147,1957,1812,606,3,8,10,10,103870464,optimal,1
+d10-1,U' B2 D' F' B2 D L' U' B2 U,10,10,ida-4-thread,korf-ida*,max of 3 PDBs,0,4,300000,10,1.004,138,1780,1644,624,3,8,10,10,103870464,optimal,1
+d10-2,F2 B' U2 R' D F2 R' L2 F2 B,10,10,ida-4-thread,korf-ida*,max of 3 PDBs,0,4,300000,10,1.677,235,3085,2852,1065,3,8,10,10,103870464,optimal,1
+d10-3,R D2 R L2 B L F L2 B2 D,10,10,ida-4-thread,korf-ida*,max of 3 PDBs,0,4,300000,10,1.348,366,4874,4509,1662,2,9,10,10,103870464,optimal,1
+d11-0,B' L D' R2 B2 U L' B U2 R B',11,11,ida-4-thread,korf-ida*,max of 3 PDBs,0,4,300000,11,4.108,1517,20192,18677,7038,3,9,11,11,103870464,optimal,1
+d11-1,R D2 B2 L D R' B' R2 F2 L2 B',11,11,ida-4-thread,korf-ida*,max of 3 PDBs,0,4,300000,11,3.833,3005,40263,37260,13755,3,9,11,11,103874560,optimal,1
+d11-2,L2 U' F2 D L D' L B' R' F L2,11,11,ida-4-thread,korf-ida*,max of 3 PDBs,0,4,300000,11,2.173,1341,17962,16622,6099,2,10,11,11,103874560,optimal,1
+d11-3,D F R2 B R F' B U2 D' F' U,11,11,ida-4-thread,korf-ida*,max of 3 PDBs,0,4,300000,11,2.956,1290,16991,15705,6129,5,7,11,11,103874560,optimal,1
+d12-0,B U B D B' D' B2 R2 F2 L' U B,12,12,ida-4-thread,korf-ida*,max of 3 PDBs,0,4,300000,12,24.155,26185,348996,322814,122259,4,9,12,12,103874560,optimal,1
+d12-1,L2 B L B' D' F' D2 F' B' U B U',12,12,ida-4-thread,korf-ida*,max of 3 PDBs,0,4,300000,12,30.646,28939,385437,356502,135390,5,8,12,12,103874560,optimal,1
+d12-2,B D2 L B' D2 B' L2 F' L U' R' B',12,12,ida-4-thread,korf-ida*,max of 3 PDBs,0,4,300000,12,22.785,24399,326118,301722,112992,4,9,12,12,103874560,optimal,1
+d12-3,D2 F L B2 R L' B' L2 U2 D2 B' R',12,12,ida-4-thread,korf-ida*,max of 3 PDBs,0,4,300000,12,27.707,28943,386260,357321,134637,5,8,12,12,103874560,optimal,1
+d13-0,R' U' L2 F D2 R D' R2 U' L F L2 D',13,13,ida-4-thread,korf-ida*,max of 3 PDBs,0,4,300000,13,125.189,146482,1955452,1808974,681099,5,9,13,13,103874560,optimal,1
+d13-1,R F D R L B' L2 F' B' D2 B' D' R',13,13,ida-4-thread,korf-ida*,max of 3 PDBs,0,4,300000,13,103.227,88277,1179350,1091077,409545,5,9,13,13,103878656,optimal,1
+d13-2,U' R2 B L' F2 D' L U L' B2 U F2 B,13,13,ida-4-thread,korf-ida*,max of 3 PDBs,0,4,300000,13,153.731,169600,2266741,2097145,785901,5,9,13,13,103882752,optimal,1
+d13-3,B R F R2 B' D' B' L' U R' B D2 F,13,13,ida-4-thread,korf-ida*,max of 3 PDBs,0,4,300000,13,198.866,219119,2920806,2701692,1023243,6,8,13,13,103882752,optimal,1
+d6-0,R B2 L2 U' D' R2,6,6,ida-8-thread,korf-ida*,max of 3 PDBs,0,8,300000,6,1.018,6,38,32,15,1,6,6,6,103964672,optimal,1
+d6-1,U2 R U F' U B',6,6,ida-8-thread,korf-ida*,max of 3 PDBs,0,8,300000,6,0.665,6,31,25,6,1,6,6,6,103964672,optimal,1
+d6-2,B' U2 L' D' R L',6,6,ida-8-thread,korf-ida*,max of 3 PDBs,0,8,300000,6,0.765,6,45,39,15,1,6,6,6,103964672,optimal,1
+d6-3,L' D F' U' L' D2,6,6,ida-8-thread,korf-ida*,max of 3 PDBs,0,8,300000,6,0.691,6,46,40,18,1,6,6,6,103964672,optimal,1
+d8-0,D2 B' R' B2 U F' L2 D',8,8,ida-8-thread,korf-ida*,max of 3 PDBs,0,8,300000,8,0.690,9,85,76,21,1,8,8,8,103964672,optimal,1
+d8-1,D2 B L' D F2 D' R L2,8,8,ida-8-thread,korf-ida*,max of 3 PDBs,0,8,300000,8,1.191,13,140,128,42,2,7,8,8,103964672,optimal,1
+d8-2,U' R2 D2 R' U2 L2 U B',8,6,ida-8-thread,korf-ida*,max of 3 PDBs,0,8,300000,6,0.564,6,43,37,9,1,6,6,6,103964672,optimal,1
+d8-3,R' B' D' B D B' U2 D',8,8,ida-8-thread,korf-ida*,max of 3 PDBs,0,8,300000,8,0.924,10,94,85,30,2,7,8,8,103964672,optimal,1
+d10-0,F' B' U' D L' F D' F B2 U2,10,10,ida-8-thread,korf-ida*,max of 3 PDBs,0,8,300000,10,1.575,147,1957,1812,606,3,8,10,10,103964672,optimal,1
+d10-1,U' B2 D' F' B2 D L' U' B2 U,10,10,ida-8-thread,korf-ida*,max of 3 PDBs,0,8,300000,10,2.197,185,2394,2211,858,3,8,10,10,103964672,optimal,1
+d10-2,F2 B' U2 R' D F2 R' L2 F2 B,10,10,ida-8-thread,korf-ida*,max of 3 PDBs,0,8,300000,10,1.749,318,4180,3864,1467,3,8,10,10,103964672,optimal,1
+d10-3,R D2 R L2 B L F L2 B2 D,10,10,ida-8-thread,korf-ida*,max of 3 PDBs,0,8,300000,10,1.165,366,4874,4509,1662,2,9,10,10,103968768,optimal,1
+d11-0,B' L D' R2 B2 U L' B U2 R B',11,11,ida-8-thread,korf-ida*,max of 3 PDBs,0,8,300000,11,2.623,1542,20526,18986,7155,3,9,11,11,103968768,optimal,1
+d11-1,R D2 B2 L D R' B' R2 F2 L2 B',11,11,ida-8-thread,korf-ida*,max of 3 PDBs,0,8,300000,11,3.800,3005,40263,37260,13755,3,9,11,11,103968768,optimal,1
+d11-2,L2 U' F2 D L D' L B' R' F L2,11,11,ida-8-thread,korf-ida*,max of 3 PDBs,0,8,300000,11,2.002,1341,17962,16622,6099,2,10,11,11,103972864,optimal,1
+d11-3,D F R2 B R F' B U2 D' F' U,11,11,ida-8-thread,korf-ida*,max of 3 PDBs,0,8,300000,11,4.016,1722,22790,21072,8109,5,7,11,11,103972864,optimal,1
+d12-0,B U B D B' D' B2 R2 F2 L' U B,12,12,ida-8-thread,korf-ida*,max of 3 PDBs,0,8,300000,12,18.995,26185,348996,322814,122259,4,9,12,12,103972864,optimal,1
+d12-1,L2 B L B' D' F' D2 F' B' U B U',12,12,ida-8-thread,korf-ida*,max of 3 PDBs,0,8,300000,12,28.640,46891,624697,577810,219273,5,8,12,12,103972864,optimal,1
+d12-2,B D2 L B' D2 B' L2 F' L U' R' B',12,12,ida-8-thread,korf-ida*,max of 3 PDBs,0,8,300000,12,18.913,24399,326118,301722,112992,4,9,12,12,103985152,optimal,1
+d12-3,D2 F L B2 R L' B' L2 U2 D2 B' R',12,12,ida-8-thread,korf-ida*,max of 3 PDBs,0,8,300000,12,21.889,44660,596077,551421,207735,5,8,12,12,103985152,optimal,1
+d13-0,R' U' L2 F D2 R D' R2 U' L F L2 D',13,13,ida-8-thread,korf-ida*,max of 3 PDBs,0,8,300000,13,110.075,201277,2687400,2486127,935466,5,9,13,13,103985152,optimal,1
+d13-1,R F D R L B' L2 F' B' D2 B' D' R',13,13,ida-8-thread,korf-ida*,max of 3 PDBs,0,8,300000,13,82.484,122998,1644116,1521122,569556,5,9,13,13,103985152,optimal,1
+d13-2,U' R2 B L' F2 D' L U L' B2 U F2 B,13,13,ida-8-thread,korf-ida*,max of 3 PDBs,0,8,300000,13,96.362,156516,2091963,1935451,724977,5,9,13,13,103985152,optimal,1
+d13-3,B R F R2 B' D' B' L' U R' B D2 F,13,13,ida-8-thread,korf-ida*,max of 3 PDBs,0,8,300000,13,144.416,272964,3638891,3365932,1274136,6,8,13,13,103985152,optimal,1

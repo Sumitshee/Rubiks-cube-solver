@@ -1,0 +1,10 @@
+Databases 82.65 MB | working set after load 90.7 MB
+
+threads     wall s      cpu s avg cores     speedup   efficiency         nodes      WS MB verified
+---------------------------------------------------------------------------------------------------
+      1      24.35      23.84      0.98        1.00x         100%       8929086       90.8 3/3
+      2      13.65      26.45      1.94        1.78x          89%       9465147       91.1 3/3
+      4       6.82      25.83      3.79        3.57x          89%       9031832       91.1 3/3
+      8       4.36      29.14      6.68        5.58x          70%       9783833       91.1 3/3
+
+Optimal length of these cases: -1, 3 samples at scramble depth 14

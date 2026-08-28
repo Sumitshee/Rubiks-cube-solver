@@ -1,0 +1,44 @@
+Databases: 326.29 MB | working set 334.3 MB | 7-edge loaded
+
+Resolving true optimal depths for 24 cases...
+done.
+
+heuristic                opt    n     mean ms  mean expanded  mean h0     iters verified
+-----------------------------------------------------------------------------------------------
+max of 3 (baseline)        6    5        0.01              6     6.00       1.0 5/5
+max of 3 (baseline)        8    3        0.02             11     7.33       1.7 3/3
+max of 3 (baseline)       10    4        0.41            162     8.25       2.8 4/4
+max of 3 (baseline)       11    4        5.88           1606     8.75       3.2 4/4
+max of 3 (baseline)       12    4       56.53          18727     8.50       4.5 4/4
+max of 3 (baseline)       13    4      403.08         139973     8.75       5.2 4/4
+
+max of 3 + inverse         6    5        0.01              6     6.00       1.0 5/5
+max of 3 + inverse         8    3        0.02             10     7.33       1.7 3/3
+max of 3 + inverse        10    4        0.33            115     8.25       2.8 4/4
+max of 3 + inverse        11    4        4.38           1097     9.00       3.0 4/4
+max of 3 + inverse        12    4       45.72          13140     8.50       4.5 4/4
+max of 3 + inverse        13    4      374.30          99728     9.00       5.0 4/4
+
+max of 4 (+7-edge)         6    5        0.01              6     6.00       1.0 5/5
+max of 4 (+7-edge)         8    3        0.02             10     7.33       1.7 3/3
+max of 4 (+7-edge)        10    4        0.28             82     8.25       2.8 4/4
+max of 4 (+7-edge)        11    4        2.07            677     8.75       3.2 4/4
+max of 4 (+7-edge)        12    4       29.20           9050     8.75       4.2 4/4
+max of 4 (+7-edge)        13    4      218.55          63736     9.00       5.0 4/4
+
+max of 4 + inverse         6    5        0.02              6     6.00       1.0 5/5
+max of 4 + inverse         8    3        0.03             10     7.33       1.7 3/3
+max of 4 + inverse        10    4        0.23             56     8.50       2.5 4/4
+max of 4 + inverse        11    4        1.75            470     9.00       3.0 4/4
+max of 4 + inverse        12    4       26.49           5981     8.75       4.2 4/4
+max of 4 + inverse        13    4      190.56          40815     9.00       5.0 4/4
+
+=== Totals across the whole case set ===
+heuristic                   total ms   total expanded    vs base nodes vs base
+-----------------------------------------------------------------------
+max of 3 (baseline)           1863.7           641936      1.00x      1.00x
+max of 3 + inverse            1699.1           456378      0.91x      0.71x
+max of 4 (+7-edge)            1000.5           294240      0.54x      0.46x
+max of 4 + inverse             876.3           189351      0.47x      0.29x
+
+Peak working set: 334.4 MB

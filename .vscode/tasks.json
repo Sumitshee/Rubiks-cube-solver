@@ -1,0 +1,65 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Configure (Release + GUI)",
+      "type": "shell",
+      "command": "cmake",
+      "args": [
+        "-S", "${workspaceFolder}",
+        "-B", "${workspaceFolder}/build",
+        "-G", "Visual Studio 17 2022",
+        "-A", "x64"
+      ],
+      "problemMatcher": [],
+      "detail": "First-time setup. Downloads GLFW, GLM, GLEW and GoogleTest."
+    },
+    {
+      "label": "Build (Release)",
+      "type": "shell",
+      "command": "cmake",
+      "args": [
+        "--build", "${workspaceFolder}/build",
+        "--config", "Release",
+        "--parallel"
+      ],
+      "group": { "kind": "build", "isDefault": true },
+      "problemMatcher": "$msCompile",
+      "detail": "Builds all four targets."
+    },
+    {
+      "label": "Build (headless, no GUI)",
+      "type": "shell",
+      "command": "cmake",
+      "args": [
+        "-S", "${workspaceFolder}",
+        "-B", "${workspaceFolder}/build-nogui",
+        "-DRUBIK_BUILD_GUI=OFF",
+        "&&",
+        "cmake", "--build", "${workspaceFolder}/build-nogui",
+        "--config", "Release", "--parallel"
+      ],
+      "problemMatcher": "$msCompile",
+      "detail": "Proves the solver builds with no graphics dependency at all."
+    },
+    {
+      "label": "Run tests",
+      "type": "shell",
+      "command": "${workspaceFolder}/build/bin/Release/rubik_tests.exe",
+      "options": { "cwd": "${workspaceFolder}" },
+      "group": { "kind": "test", "isDefault": true },
+      "problemMatcher": [],
+      "presentation": { "reveal": "always", "panel": "dedicated" },
+      "detail": "All 273 tests. Takes about 17 seconds."
+    },
+    {
+      "label": "Generate pattern databases",
+      "type": "shell",
+      "command": "${workspaceFolder}/build/bin/Release/rubiks_solver.exe",
+      "args": ["--generate-pdb", "--with-7edge"],
+      "options": { "cwd": "${workspaceFolder}" },
+      "problemMatcher": [],
+      "detail": "One-time, ~5 minutes. Only needed if data/*.db are missing."
+    }
+  ]
+}

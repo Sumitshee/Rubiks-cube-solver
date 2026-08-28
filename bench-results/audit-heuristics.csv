@@ -1,0 +1,100 @@
+# cpu,11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz
+# logical_cores,8
+# ram_gb,7.75
+# compiler,MSVC 1944
+# build,Release/RelWithDebInfo (NDEBUG)
+# timestamp,2026-08-27T11:17:56
+case_id,scramble,scramble_length,known_optimal,config,solver,heuristic,order_moves,threads,time_limit_ms,solution_length,milliseconds,nodes_expanded,nodes_generated,nodes_pruned,moves_skipped,iterations,initial_heuristic,final_threshold,proven_lower_bound,peak_memory_bytes,status,verified
+d6-0,R B2 L2 U' D' R2,6,6,ida-no-heuristic,korf-ida*,none,0,1,300000,6,151.024,2731826,2731820,0,951879,7,0,6,6,359104512,optimal,1
+d6-1,U2 R U F' U B',6,6,ida-no-heuristic,korf-ida*,none,0,1,300000,6,482.206,7842925,7842919,0,2732946,7,0,6,6,359104512,optimal,1
+d6-2,B' U2 L' D' R L',6,6,ida-no-heuristic,korf-ida*,none,0,1,300000,6,200.058,3563691,3563685,0,1241763,7,0,6,6,359104512,optimal,1
+d6-3,L' D F' U' L' D2,6,6,ida-no-heuristic,korf-ida*,none,0,1,300000,6,353.632,5906943,5906937,0,2058318,7,0,6,6,359104512,optimal,1
+d8-2,U' R2 D2 R' U2 L2 U B',8,6,ida-no-heuristic,korf-ida*,none,0,1,300000,6,431.132,7929757,7929751,0,2763201,7,0,6,6,359104512,optimal,1
+d6-0,R B2 L2 U' D' R2,6,6,ida-corner-pdb,korf-ida*,corner PDB,0,1,300000,6,0.124,70,737,668,252,2,5,6,6,359104512,optimal,1
+d6-1,U2 R U F' U B',6,6,ida-corner-pdb,korf-ida*,corner PDB,0,1,300000,6,0.023,12,103,91,24,1,6,6,6,359104512,optimal,1
+d6-2,B' U2 L' D' R L',6,6,ida-corner-pdb,korf-ida*,corner PDB,0,1,300000,6,0.086,59,636,578,216,2,5,6,6,359104512,optimal,1
+d6-3,L' D F' U' L' D2,6,6,ida-corner-pdb,korf-ida*,corner PDB,0,1,300000,6,0.023,20,189,169,66,1,6,6,6,359104512,optimal,1
+d8-0,D2 B' R' B2 U F' L2 D',8,8,ida-corner-pdb,korf-ida*,corner PDB,0,1,300000,8,0.069,57,613,556,207,1,8,8,8,359104512,optimal,1
+d8-1,D2 B L' D F2 D' R L2,8,8,ida-corner-pdb,korf-ida*,corner PDB,0,1,300000,8,0.266,229,2609,2381,885,2,7,8,8,359104512,optimal,1
+d8-2,U' R2 D2 R' U2 L2 U B',8,6,ida-corner-pdb,korf-ida*,corner PDB,0,1,300000,6,0.019,10,82,72,24,1,6,6,6,359104512,optimal,1
+d8-3,R' B' D' B D B' U2 D',8,8,ida-corner-pdb,korf-ida*,corner PDB,0,1,300000,8,0.121,60,649,590,213,2,7,8,8,359104512,optimal,1
+d10-0,F' B' U' D L' F D' F B2 U2,10,10,ida-corner-pdb,korf-ida*,corner PDB,0,1,300000,10,181.527,149363,1744728,1595370,627264,6,5,10,10,359104512,optimal,1
+d10-1,U' B2 D' F' B2 D L' U' B2 U,10,10,ida-corner-pdb,korf-ida*,corner PDB,0,1,300000,10,13.827,9317,106301,96986,36789,3,8,10,10,359104512,optimal,1
+d10-2,F2 B' U2 R' D F2 R' L2 F2 B,10,10,ida-corner-pdb,korf-ida*,corner PDB,0,1,300000,10,44.421,31179,360835,329659,125943,4,7,10,10,359104512,optimal,1
+d10-3,R D2 R L2 B L F L2 B2 D,10,10,ida-corner-pdb,korf-ida*,corner PDB,0,1,300000,10,13.630,14382,162860,148479,55890,2,9,10,10,359104512,optimal,1
+d11-0,B' L D' R2 B2 U L' B U2 R B',11,11,ida-corner-pdb,korf-ida*,corner PDB,0,1,300000,11,186.374,171922,1964911,1792991,675558,3,9,11,11,359104512,optimal,1
+d11-1,R D2 B2 L D R' B' R2 F2 L2 B',11,11,ida-corner-pdb,korf-ida*,corner PDB,0,1,300000,11,179.106,159011,1808791,1649782,616995,3,9,11,11,359104512,optimal,1
+d11-2,L2 U' F2 D L D' L B' R' F L2,11,11,ida-corner-pdb,korf-ida*,corner PDB,0,1,300000,11,74.626,68745,778909,710165,262869,2,10,11,11,359104512,optimal,1
+d11-3,D F R2 B R F' B U2 D' F' U,11,11,ida-corner-pdb,korf-ida*,corner PDB,0,1,300000,11,137.707,131855,1524550,1392699,534801,5,7,11,11,359104512,optimal,1
+d6-0,R B2 L2 U' D' R2,6,6,ida-max-of-three,korf-ida*,max of 3 PDBs,0,1,300000,6,0.014,6,38,32,15,1,6,6,6,359116800,optimal,1
+d6-1,U2 R U F' U B',6,6,ida-max-of-three,korf-ida*,max of 3 PDBs,0,1,300000,6,0.009,6,31,25,6,1,6,6,6,359116800,optimal,1
+d6-2,B' U2 L' D' R L',6,6,ida-max-of-three,korf-ida*,max of 3 PDBs,0,1,300000,6,0.011,6,45,39,15,1,6,6,6,359116800,optimal,1
+d6-3,L' D F' U' L' D2,6,6,ida-max-of-three,korf-ida*,max of 3 PDBs,0,1,300000,6,0.009,6,39,33,18,1,6,6,6,359116800,optimal,1
+d8-0,D2 B' R' B2 U F' L2 D',8,8,ida-max-of-three,korf-ida*,max of 3 PDBs,0,1,300000,8,0.017,9,79,70,21,1,8,8,8,359116800,optimal,1
+d8-1,D2 B L' D F2 D' R L2,8,8,ida-max-of-three,korf-ida*,max of 3 PDBs,0,1,300000,8,0.042,13,140,128,42,2,7,8,8,359116800,optimal,1
+d8-2,U' R2 D2 R' U2 L2 U B',8,6,ida-max-of-three,korf-ida*,max of 3 PDBs,0,1,300000,6,0.008,6,43,37,9,1,6,6,6,359116800,optimal,1
+d8-3,R' B' D' B D B' U2 D',8,8,ida-max-of-three,korf-ida*,max of 3 PDBs,0,1,300000,8,0.022,10,94,85,30,2,7,8,8,359116800,optimal,1
+d10-0,F' B' U' D L' F D' F B2 U2,10,10,ida-max-of-three,korf-ida*,max of 3 PDBs,0,1,300000,10,0.356,92,1203,1113,369,3,8,10,10,359116800,optimal,1
+d10-1,U' B2 D' F' B2 D L' U' B2 U,10,10,ida-max-of-three,korf-ida*,max of 3 PDBs,0,1,300000,10,0.242,90,1133,1045,405,3,8,10,10,359116800,optimal,1
+d10-2,F2 B' U2 R' D F2 R' L2 F2 B,10,10,ida-max-of-three,korf-ida*,max of 3 PDBs,0,1,300000,10,0.678,170,2212,2044,762,3,8,10,10,359116800,optimal,1
+d10-3,R D2 R L2 B L F L2 B2 D,10,10,ida-max-of-three,korf-ida*,max of 3 PDBs,0,1,300000,10,1.064,297,3959,3663,1329,2,9,10,10,359116800,optimal,1
+d11-0,B' L D' R2 B2 U L' B U2 R B',11,11,ida-max-of-three,korf-ida*,max of 3 PDBs,0,1,300000,11,4.526,1464,19486,18024,6789,3,9,11,11,359116800,optimal,1
+d11-1,R D2 B2 L D R' B' R2 F2 L2 B',11,11,ida-max-of-three,korf-ida*,max of 3 PDBs,0,1,300000,11,9.110,2680,35914,33236,12252,3,9,11,11,359116800,optimal,1
+d11-2,L2 U' F2 D L D' L B' R' F L2,11,11,ida-max-of-three,korf-ida*,max of 3 PDBs,0,1,300000,11,2.847,1098,14719,13622,4965,2,10,11,11,359116800,optimal,1
+d11-3,D F R2 B R F' B U2 D' F' U,11,11,ida-max-of-three,korf-ida*,max of 3 PDBs,0,1,300000,11,3.480,1183,15574,14395,5619,5,7,11,11,359116800,optimal,1
+d12-0,B U B D B' D' B2 R2 F2 L' U B,12,12,ida-max-of-three,korf-ida*,max of 3 PDBs,0,1,300000,12,90.107,26185,348996,322814,122259,4,9,12,12,359116800,optimal,1
+d12-1,L2 B L B' D' F' D2 F' B' U B U',12,12,ida-max-of-three,korf-ida*,max of 3 PDBs,0,1,300000,12,36.378,9658,128536,118882,45228,5,8,12,12,359116800,optimal,1
+d12-2,B D2 L B' D2 B' L2 F' L U' R' B',12,12,ida-max-of-three,korf-ida*,max of 3 PDBs,0,1,300000,12,84.561,24399,326118,301722,112992,4,9,12,12,359116800,optimal,1
+d12-3,D2 F L B2 R L' B' L2 U2 D2 B' R',12,12,ida-max-of-three,korf-ida*,max of 3 PDBs,0,1,300000,12,48.126,14665,195482,180821,68406,5,8,12,12,359116800,optimal,1
+d13-0,R' U' L2 F D2 R D' R2 U' L F L2 D',13,13,ida-max-of-three,korf-ida*,max of 3 PDBs,0,1,300000,13,513.219,146482,1955452,1808974,681099,5,9,13,13,359116800,optimal,1
+d13-1,R F D R L B' L2 F' B' D2 B' D' R',13,13,ida-max-of-three,korf-ida*,max of 3 PDBs,0,1,300000,13,266.378,75735,1011523,935792,351615,5,9,13,13,359116800,optimal,1
+d13-2,U' R2 B L' F2 D' L U L' B2 U F2 B,13,13,ida-max-of-three,korf-ida*,max of 3 PDBs,0,1,300000,13,535.833,158848,2122920,1964076,736242,5,9,13,13,359116800,optimal,1
+d13-3,B R F R2 B' D' B' L' U R' B D2 F,13,13,ida-max-of-three,korf-ida*,max of 3 PDBs,0,1,300000,13,602.379,178828,2382753,2203930,836055,6,8,13,13,359116800,optimal,1
+d6-0,R B2 L2 U' D' R2,6,6,ida-max-of-four,korf-ida*,max of 4 PDBs,0,1,300000,6,0.037,6,38,32,15,1,6,6,6,359137280,optimal,1
+d6-1,U2 R U F' U B',6,6,ida-max-of-four,korf-ida*,max of 4 PDBs,0,1,300000,6,0.009,6,31,25,6,1,6,6,6,359137280,optimal,1
+d6-2,B' U2 L' D' R L',6,6,ida-max-of-four,korf-ida*,max of 4 PDBs,0,1,300000,6,0.012,6,45,39,15,1,6,6,6,359137280,optimal,1
+d6-3,L' D F' U' L' D2,6,6,ida-max-of-four,korf-ida*,max of 4 PDBs,0,1,300000,6,0.010,6,39,33,18,1,6,6,6,359137280,optimal,1
+d8-0,D2 B' R' B2 U F' L2 D',8,8,ida-max-of-four,korf-ida*,max of 4 PDBs,0,1,300000,8,0.016,8,64,56,18,1,8,8,8,359137280,optimal,1
+d8-1,D2 B L' D F2 D' R L2,8,8,ida-max-of-four,korf-ida*,max of 4 PDBs,0,1,300000,8,0.025,11,113,103,33,2,7,8,8,359137280,optimal,1
+d8-2,U' R2 D2 R' U2 L2 U B',8,6,ida-max-of-four,korf-ida*,max of 4 PDBs,0,1,300000,6,0.011,6,43,37,9,1,6,6,6,359137280,optimal,1
+d8-3,R' B' D' B D B' U2 D',8,8,ida-max-of-four,korf-ida*,max of 4 PDBs,0,1,300000,8,0.022,10,94,85,30,2,7,8,8,359137280,optimal,1
+d10-0,F' B' U' D L' F D' F B2 U2,10,10,ida-max-of-four,korf-ida*,max of 4 PDBs,0,1,300000,10,0.273,51,636,587,198,3,8,10,10,359137280,optimal,1
+d10-1,U' B2 D' F' B2 D L' U' B2 U,10,10,ida-max-of-four,korf-ida*,max of 4 PDBs,0,1,300000,10,0.208,58,713,657,249,3,8,10,10,359137280,optimal,1
+d10-2,F2 B' U2 R' D F2 R' L2 F2 B,10,10,ida-max-of-four,korf-ida*,max of 4 PDBs,0,1,300000,10,0.344,89,1132,1045,384,3,8,10,10,359137280,optimal,1
+d10-3,R D2 R L2 B L F L2 B2 D,10,10,ida-max-of-four,korf-ida*,max of 4 PDBs,0,1,300000,10,0.485,130,1718,1589,564,2,9,10,10,359137280,optimal,1
+d11-0,B' L D' R2 B2 U L' B U2 R B',11,11,ida-max-of-four,korf-ida*,max of 4 PDBs,0,1,300000,11,2.438,722,9592,8872,3327,3,9,11,11,359137280,optimal,1
+d11-1,R D2 B2 L D R' B' R2 F2 L2 B',11,11,ida-max-of-four,korf-ida*,max of 4 PDBs,0,1,300000,11,3.307,829,11101,10274,3747,3,9,11,11,359137280,optimal,1
+d11-2,L2 U' F2 D L D' L B' R' F L2,11,11,ida-max-of-four,korf-ida*,max of 4 PDBs,0,1,300000,11,3.195,568,7603,7036,2541,2,10,11,11,359137280,optimal,1
+d11-3,D F R2 B R F' B U2 D' F' U,11,11,ida-max-of-four,korf-ida*,max of 4 PDBs,0,1,300000,11,2.324,589,7789,7204,2712,5,7,11,11,359137280,optimal,1
+d12-0,B U B D B' D' B2 R2 F2 L' U B,12,12,ida-max-of-four,korf-ida*,max of 4 PDBs,0,1,300000,12,49.272,12964,172668,159707,60609,4,9,12,12,359137280,optimal,1
+d12-1,L2 B L B' D' F' D2 F' B' U B U',12,12,ida-max-of-four,korf-ida*,max of 4 PDBs,0,1,300000,12,13.138,3353,44578,41228,15696,4,9,12,12,359137280,optimal,1
+d12-2,B D2 L B' D2 B' L2 F' L U' R' B',12,12,ida-max-of-four,korf-ida*,max of 4 PDBs,0,1,300000,12,47.006,11063,147945,136885,51117,4,9,12,12,359137280,optimal,1
+d12-3,D2 F L B2 R L' B' L2 U2 D2 B' R',12,12,ida-max-of-four,korf-ida*,max of 4 PDBs,0,1,300000,12,33.954,8820,117593,108777,41085,5,8,12,12,359137280,optimal,1
+d13-0,R' U' L2 F D2 R D' R2 U' L F L2 D',13,13,ida-max-of-four,korf-ida*,max of 4 PDBs,0,1,300000,13,282.460,64010,854404,790398,297651,5,9,13,13,359137280,optimal,1
+d13-1,R F D R L B' L2 F' B' D2 B' D' R',13,13,ida-max-of-four,korf-ida*,max of 4 PDBs,0,1,300000,13,122.438,33742,450298,416560,156966,5,9,13,13,359137280,optimal,1
+d13-2,U' R2 B L' F2 D' L U L' B2 U F2 B,13,13,ida-max-of-four,korf-ida*,max of 4 PDBs,0,1,300000,13,316.951,86318,1153788,1067474,399834,5,9,13,13,359137280,optimal,1
+d13-3,B R F R2 B' D' B' L' U R' B D2 F,13,13,ida-max-of-four,korf-ida*,max of 4 PDBs,0,1,300000,13,245.594,70875,945585,874714,330069,5,9,13,13,359137280,optimal,1
+d6-0,R B2 L2 U' D' R2,6,6,ida-max-of-four-inv,korf-ida*,max of 4 + inverse,0,1,300000,6,0.016,6,38,32,15,1,6,6,6,359161856,optimal,1
+d6-1,U2 R U F' U B',6,6,ida-max-of-four-inv,korf-ida*,max of 4 + inverse,0,1,300000,6,0.014,6,31,25,6,1,6,6,6,359161856,optimal,1
+d6-2,B' U2 L' D' R L',6,6,ida-max-of-four-inv,korf-ida*,max of 4 + inverse,0,1,300000,6,0.017,6,45,39,15,1,6,6,6,359161856,optimal,1
+d6-3,L' D F' U' L' D2,6,6,ida-max-of-four-inv,korf-ida*,max of 4 + inverse,0,1,300000,6,0.016,6,39,33,18,1,6,6,6,359161856,optimal,1
+d8-0,D2 B' R' B2 U F' L2 D',8,8,ida-max-of-four-inv,korf-ida*,max of 4 + inverse,0,1,300000,8,0.021,8,64,56,18,1,8,8,8,359161856,optimal,1
+d8-1,D2 B L' D F2 D' R L2,8,8,ida-max-of-four-inv,korf-ida*,max of 4 + inverse,0,1,300000,8,0.040,11,113,103,33,2,7,8,8,359161856,optimal,1
+d8-2,U' R2 D2 R' U2 L2 U B',8,6,ida-max-of-four-inv,korf-ida*,max of 4 + inverse,0,1,300000,6,0.014,6,43,37,9,1,6,6,6,359161856,optimal,1
+d8-3,R' B' D' B D B' U2 D',8,8,ida-max-of-four-inv,korf-ida*,max of 4 + inverse,0,1,300000,8,0.026,10,94,85,30,2,7,8,8,359161856,optimal,1
+d10-0,F' B' U' D L' F D' F B2 U2,10,10,ida-max-of-four-inv,korf-ida*,max of 4 + inverse,0,1,300000,10,0.306,38,459,423,141,3,8,10,10,359161856,optimal,1
+d10-1,U' B2 D' F' B2 D L' U' B2 U,10,10,ida-max-of-four-inv,korf-ida*,max of 4 + inverse,0,1,300000,10,0.230,44,527,485,183,3,8,10,10,359161856,optimal,1
+d10-2,F2 B' U2 R' D F2 R' L2 F2 B,10,10,ida-max-of-four-inv,korf-ida*,max of 4 + inverse,0,1,300000,10,0.285,44,538,495,168,2,9,10,10,359161856,optimal,1
+d10-3,R D2 R L2 B L F L2 B2 D,10,10,ida-max-of-four-inv,korf-ida*,max of 4 + inverse,0,1,300000,10,0.584,100,1310,1211,432,2,9,10,10,359161856,optimal,1
+d11-0,B' L D' R2 B2 U L' B U2 R B',11,11,ida-max-of-four-inv,korf-ida*,max of 4 + inverse,0,1,300000,11,2.696,482,6391,5911,2208,3,9,11,11,359161856,optimal,1
+d11-1,R D2 B2 L D R' B' R2 F2 L2 B',11,11,ida-max-of-four-inv,korf-ida*,max of 4 + inverse,0,1,300000,11,2.188,625,8395,7772,2781,3,9,11,11,359161856,optimal,1
+d11-2,L2 U' F2 D L D' L B' R' F L2,11,11,ida-max-of-four-inv,korf-ida*,max of 4 + inverse,0,1,300000,11,1.696,350,4672,4323,1548,2,10,11,11,359161856,optimal,1
+d11-3,D F R2 B R F' B U2 D' F' U,11,11,ida-max-of-four-inv,korf-ida*,max of 4 + inverse,0,1,300000,11,2.089,425,5578,5156,1971,4,8,11,11,359161856,optimal,1
+d12-0,B U B D B' D' B2 R2 F2 L' U B,12,12,ida-max-of-four-inv,korf-ida*,max of 4 + inverse,0,1,300000,12,38.655,8099,108192,100096,37515,4,9,12,12,359161856,optimal,1
+d12-1,L2 B L B' D' F' D2 F' B' U B U',12,12,ida-max-of-four-inv,korf-ida*,max of 4 + inverse,0,1,300000,12,13.415,2257,30115,27861,10431,4,9,12,12,359161856,optimal,1
+d12-2,B D2 L B' D2 B' L2 F' L U' R' B',12,12,ida-max-of-four-inv,korf-ida*,max of 4 + inverse,0,1,300000,12,39.979,7060,94413,87356,32595,4,9,12,12,359161856,optimal,1
+d12-3,D2 F L B2 R L' B' L2 U2 D2 B' R',12,12,ida-max-of-four-inv,korf-ida*,max of 4 + inverse,0,1,300000,12,27.073,6509,86843,80338,30237,5,8,12,12,359161856,optimal,1
+d13-0,R' U' L2 F D2 R D' R2 U' L F L2 D',13,13,ida-max-of-four-inv,korf-ida*,max of 4 + inverse,0,1,300000,13,202.769,41414,553588,512178,191739,5,9,13,13,359161856,optimal,1
+d13-1,R F D R L B' L2 F' B' D2 B' D' R',13,13,ida-max-of-four-inv,korf-ida*,max of 4 + inverse,0,1,300000,13,116.781,22207,296293,274090,103341,5,9,13,13,359161856,optimal,1
+d13-2,U' R2 B L' F2 D' L U L' B2 U F2 B,13,13,ida-max-of-four-inv,korf-ida*,max of 4 + inverse,0,1,300000,13,261.463,57176,764298,707126,264768,5,9,13,13,359161856,optimal,1
+d13-3,B R F R2 B' D' B' L' U R' B D2 F,13,13,ida-max-of-four-inv,korf-ida*,max of 4 + inverse,0,1,300000,13,198.412,42462,565710,523252,198510,5,9,13,13,359161856,optimal,1

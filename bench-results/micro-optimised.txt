@@ -1,0 +1,28 @@
+﻿CPU:       11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz (8 logical cores)
+RAM:       7.75 GB
+Compiler:  MSVC 1944
+Build:     Release/RelWithDebInfo (NDEBUG)
+Timestamp: 2026-08-26T23:06:17
+
+Setup:     0.60 s  (two-phase tables 7 MB, pattern databases 82 MB)
+
+=== Hot-loop primitives ===
+
+primitive                                   ns/op per node     ns/node   note
+----------------------------------------------------------------------------------------------------------------
+loop scaffolding only                        0.38      0.0        0.00   measurement floor, subtracted below
+Cube::apply + Cube::undo                    30.10      1.0       30.10   one make/unmake pair per generated node
+isRedundant                                 -0.12      1.0       -0.12   pruning check per candidate move
+coord::cornerPermutation                    21.05      0.0        0.00   part of the corner index
+coord::cornerOrientation                    -1.19      0.0        0.00   part of the corner index
+CornerAbstraction::index                    19.03      1.0       19.03   recomputed from scratch per lookup
+EdgeAbstraction::index                      22.68      1.4       31.75   inverse permutation plus partial rank
+  ... rank half only                        14.25      0.0        0.00   encodePartialPermutation(12,6) on known positions
+corner PDB lookup (index + read)            19.57      1.0       19.57   always consulted
+edge A PDB lookup (index + read)            19.92      0.7       13.94   consulted when under budget
+KorfHeuristic::estimate (full max)          75.27      0.0        0.00   used only for the root and when ordering
+KorfHeuristic::estimateAtLeast(0)           25.60      1.0       25.60   the search's actual heuristic call
+KorfHeuristic::estimateAtLeast(12)          70.07      0.0        0.00   loose budget: all three databases are read
+----------------------------------------------------------------------------------------------------------------
+Predicted cost per generated node: 139.88 ns
+
