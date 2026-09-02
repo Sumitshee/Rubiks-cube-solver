@@ -122,8 +122,9 @@ class PatternDatabase {
   /// Uses a **frontier-less** sweep: instead of keeping a queue of states to
   /// expand, each pass scans the distance array itself for entries equal to the
   /// current depth and expands those. Peak memory is therefore just the array --
-  /// 42 MB for the corner database, versus the roughly 5 GB the reference
-  /// implementation's pointer-based BFS queue requires for the same job.
+  /// 42 MB for the corner database. A queue-based BFS would hold the frontier on
+  /// top of that, and any scheme retaining parent pointers would keep the entire
+  /// explored tree alive, which runs to gigabytes at this scale.
   ///
   /// The cost is re-scanning the array once per depth. With a maximum depth
   /// around 11 that is a dozen sequential passes, which is far cheaper than the

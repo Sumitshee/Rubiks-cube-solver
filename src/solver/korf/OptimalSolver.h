@@ -65,9 +65,8 @@ struct OptimalOptions {
   /// forfeiting the early exit that stops at the first database already over
   /// budget, and must then apply each surviving move a second time.
   ///
-  /// Fewer nodes is not the goal; less time is. The reference implementation
-  /// orders moves (via a priority queue built per expansion); this one measured
-  /// it and left it off. Kept configurable so the comparison stays reproducible.
+  /// Fewer nodes is not the goal; less time is. Kept configurable so the
+  /// measurement stays reproducible.
   bool orderMoves = false;
 
   HeuristicMode heuristic = HeuristicMode::MaxOfThree;
@@ -158,9 +157,12 @@ struct OptimalResult {
 ///
 /// One mutable cube, mutated in place by make/unmake, and one reusable move
 /// stack. No cube is copied, nothing is allocated, and no container is built
-/// during expansion. The reference implementation instead pushes full cube
-/// copies onto an explicit stack and allocates a priority queue -- itself
-/// holding another cube copy per entry -- at every expansion.
+/// during expansion.
+///
+/// The alternative -- pushing whole cube copies onto an explicit node stack and
+/// building a container of successors at each node -- costs roughly eighteen
+/// cube copies plus an allocation per expansion. At tens of millions of nodes
+/// that allocation traffic dominates everything else.
 ///
 /// ## What optimality rests on
 ///

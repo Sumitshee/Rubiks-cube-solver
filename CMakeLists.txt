@@ -103,11 +103,12 @@ endif()
 # Optimisation for the search hot path
 # ---------------------------------------------------------------------------
 #
-# Deliberately NOT using -march=native / -Ofast (as the reference project does).
-# -Ofast enables -ffast-math, which is unnecessary here since the solver is
-# entirely integer work, and -march=native produces binaries that will not run
-# on other machines. Interprocedural optimisation is enabled instead, because
-# the hot loop crosses translation units (search -> cube -> heuristic).
+# Deliberately NOT using -march=native / -Ofast. -Ofast enables -ffast-math,
+# which is unnecessary here since the solver is entirely integer work, and
+# -march=native produces binaries that will not run on other machines --
+# unacceptable for something whose benchmark numbers are meant to be comparable
+# across machines. Interprocedural optimisation is enabled instead, because the
+# hot loop crosses translation units (search -> cube -> heuristic).
 
 add_library(rubik_options INTERFACE)
 if(MSVC)

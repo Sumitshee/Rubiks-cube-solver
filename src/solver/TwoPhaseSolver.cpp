@@ -131,12 +131,12 @@ void Search::tryPhase2(int phase1Length) {
 
   // Replay phase 1 onto a copy of the cube to read the phase-2 coordinates.
   //
-  // The alternative -- threading extra coordinates through phase 1 the way the
-  // reference implementation does -- is measurably faster per phase-1 solution
-  // but needs two more coordinate families and their move tables purely to
-  // handle the transition. Replaying costs at most 12 cube moves against a
-  // phase-2 search that expands thousands of nodes, so the simpler version is
-  // the right trade here.
+  // The alternative -- threading two more coordinate families through phase 1
+  // so the transition needs no replay -- is measurably faster per phase-1
+  // solution, but it costs those coordinates and their move tables purely to
+  // serve the handover. Replaying is at most 12 cube moves against a phase-2
+  // search that expands thousands of nodes, so the simpler version is the right
+  // trade here.
   Cube cube = start_;
   for (int i = 0; i < phase1Length; ++i) {
     cube.apply(path1_[static_cast<std::size_t>(i)]);
